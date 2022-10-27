@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/jupyter-notebook-server-aws-ec2
 
 ---
 
+
 This is a step-by-step guide to deploying a Jupyter Notebook Server to AWS EC2 and AWS VPC. We have a related video series [here](/projects/jupyter-x-aws).
 
 # Create your VPC
