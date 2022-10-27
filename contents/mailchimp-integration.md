@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/mailchimp-integration/
 
 ---
 
+
 The Mailchimp API is extensive. In this post, we're going to be building a basic, yet effective, way to integrate the API to our Python project(s). This concept is covered in more detail in the eCommerce course [here](https://www.codingforentrepreneurs.com/courses/ecommerce/mailchimp-integration/).
 
 Below is done using Django but can be done in any Python project.
