@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/rest-api-basics-with-the-django
 
 ---
 
+
 This post is the same as the project on [github](https://github.com/codingforentrepreneurs/REST-API-Basics). 
 
 This is a basic guide on how to build a REST API with Django & Python. For much deeper depth and understanding, check out our new course on [REST API](https://kirr.co/rfqyre).
