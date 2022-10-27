@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/aws-iam-user-role-policies-zapp
 
 ---
 
+
 This is [Zappa](https://www.zappa.io/) specific guide. Zappa is amazing for creating a serverless architecture. We'll be exploring *much* more about Zappa in the future so be sure to check back soon.
 
 Zappa in AWS needs all of these permissions to function correctly. If you know AWS well and how to limit your resources, you can do so but what you see below is the bare minimum that zappa needs to create.
