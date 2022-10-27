@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/the-simple-power-of-django-vali
 
 ---
 
+
 # The Simple Power of Django Validators
 
 - Did *jon@targaryen.com* already register?
