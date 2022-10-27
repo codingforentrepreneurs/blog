@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/angular-error-no-provider-for-m
 
 ---
 
+
 The error "No Provider for Module" is a common mistake when first starting out, especially using your own custom services. There are two ways, pretty easy ones, to solve that. You just have to remember to do it.
 
 First off, if it's a service you intend to use throughout your components (let's say more than 2 components) you should put it in your `app.module.ts` in the `providers` argument. Below is an example:
