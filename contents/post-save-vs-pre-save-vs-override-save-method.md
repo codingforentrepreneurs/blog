@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/post-save-vs-pre-save-vs-overri
 
 ---
 
+
 Which is better ... `post_save` vs`pre_save` or `override save method` when dealing with Models?
 
 This is a great question so I wanted to distill it here. 
