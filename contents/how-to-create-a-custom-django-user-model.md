@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/how-to-create-a-custom-django-u
 
 ---
 
+
 > This guide was updated for Django 4.0 but check supported versions below.
 
 Django's built-in User model and authentication support is incredible. It's been a staple of Django for a long time. For me, it's one of the primary reasons I use Django over Flask, FastAPI, AIOHttp, and many other web frameworks.
