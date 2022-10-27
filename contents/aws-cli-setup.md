@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/aws-cli-setup/
 
 ---
 
+
 This post is related to an upcoming series that covers making Serverless Apps using Python, AWS Lambda, and API Gateway. That's how we choose the policies we did but the overall setup process is the same regardless of the service (and policy) you decide to use.
 
 __Related Posts__:
