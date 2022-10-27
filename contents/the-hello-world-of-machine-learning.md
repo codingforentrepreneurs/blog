@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/the-hello-world-of-machine-lear
 
 ---
 
+
 [Repo](https://github.com/codingforentrepreneurs/The-Hello-World-of-Machine-Learning) | [Google Colab](https://colab.research.google.com/github/codingforentrepreneurs/The-Hello-World-of-Machine-Learning/blob/master/notebooks/ML%20Hello%20World.ipynb)
 
 Machine learning is simply a computer learning from data instead of following a recipe. It's meant to mimic how people (and perhaps other animals) learn while still being grounded in mathematics.
