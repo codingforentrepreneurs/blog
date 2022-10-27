@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-static-files-digitalocea
 
 ---
 
+
 In this post, we'll use DigitalOcean Spaces for hosting our Django Static Files in production. DO Spaces is an S3-Compatible Cloud Object Storage that features a built-in Content Delivery Network (CDN). 
 
 Spaces and the built-in CDN maximizes performance globally and allows for virtually unlimited amount of items stored.
