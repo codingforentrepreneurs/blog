@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/go-live-with-django-project-and
 
 ---
 
+
 Make your Django project live using [Heroku.com](https://www.heroku.com)'s web hosting services. This uses Heroku's standard build process.
 
 Interested in Docker containers for Django on Heroku? Check it out [here](https://www.codingforentrepreneurs.com/blog/deploy-django-on-docker-to-heroku-opencv).
