@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-jwt-client-django-rest-f
 
 ---
 
+
 In this blog post, we'll look at an example Python client for authentication via JSON Web Tokens (JWT). The code below is meant to be used as a snippet you can modify as you need. If you have questions or comments, please write them below.
 
 If you want full context on how to use this code, consider watching our [Django Rest Framework tutorial series](https://www.codingforentrepreneurs.com/projects/django-rest-framework-2022/).
