@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/staging-django-production-devel
 
 ---
 
+
 ## How do you have different settings files for production and local development?
 
 This post is an inspiration of two sources: Jan Hesters (a member of the CFE community) and an awesome [presentation](http://lanyrd.com/sgbwt/) by Jacob Kaplan-Moss (a core contributor to Django).
