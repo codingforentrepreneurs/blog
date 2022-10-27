@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/coming-soon-2017/
 
 ---
 
+
 ### Topics
 - [Django v1.11](https://www.codingforentrepreneurs.com/tags/django-1-11/)
 - [Mobile App with Ionic](/courses/django-angular-ionic)
