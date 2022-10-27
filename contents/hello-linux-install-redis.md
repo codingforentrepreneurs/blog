@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-install-redis/
 
 ---
 
+
 <div class='alert alert-success'>This is the seventh post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
 Redis is a datastore for "queued messages" which just means it's like a list of items that can be consumed
