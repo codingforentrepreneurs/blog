@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/srvup-2-is-here/
 
 ---
 
+
 The future of education will lean heavily on the internet and videos. Srvup 2 ([watch now](https://www.codingforentrepreneurs.com/projects/srvup-2/)) is a series to help you build your very own video membership site much like this one [CodingForEntrepreneurs.com](http://joincfe.com). 
 
 Technology: 
