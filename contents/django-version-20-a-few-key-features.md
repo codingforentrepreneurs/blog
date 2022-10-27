@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-version-20-a-few-key-fea
 
 ---
 
+
 I'll be updating this post from time to time as I uncover new things about Django version 2.0. This post will not be exhaustive since the [release notes](https://docs.djangoproject.com/en/dev/releases/) are.
 
 Something else that's important to note: this post is mainly for our content. If you're randomly finding this, you might be wondering why we left out a few things. It's simple: the things below I know will have an immediate impact for our students looking to move to Django 2.0 (but remember always follow the version in the videos!) Enjoy.
