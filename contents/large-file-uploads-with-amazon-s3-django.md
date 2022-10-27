@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/large-file-uploads-with-amazon-
 
 ---
 
+
 Handling large file uploads can be a challenge. In this one, we aim to make it a little easier to implement in your projects. Overall, this guide, https://kirr.co/e1133t, will be your final destination for getting this done right. 
 
 ### Watch on [cfe](https://www.codingforentrepreneurs.com/projects/large-file-uploads/), [youtube](https://kirr.co/mcoqlf), or [here](#watch).
