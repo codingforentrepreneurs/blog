@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/deploy-your-djangopython-app-to
 
 ---
 
+
 Learn how to deploy an app to PyPi (the Python Package Index) so you can do `pip install <your-app>`. 
 
 Live App: https://github.com/srvup/srvup-comments `pip install srvup-comments`
