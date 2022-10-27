@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/reactify-django/
 
 ---
 
+
 # Reactify Django is Here
 Build the integration you never knew how much you needed.
 
