@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-docker-production-heroku
 
 ---
 
+
 #### What is Docker and Why use it? 
 
 If you cloned any of my [github](https://cfe.sh/github) projects and tried to run them, there's a **really** good chance that you'll have errors doing so unless you know *exactly* how I setup my system and my virtual environment. The majority of the repos cover the virtual environment part but not how my operating system is setup. That's challenge numero uno.
