@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/getting-started-with-digitaloce
 
 ---
 
+
 In [Try Django 3.2](https://www.codingforentrepreneurs.com/projects/try-django-3-2) we cover how to deploy to DigitalOcean App Platform via the console. In this blog post, we're going to cover how to deploy via the command line tool called `doctl`.
 
 There are a few reasons to learn about the command line tool but the primary one is this: monitoring app changes via git.
