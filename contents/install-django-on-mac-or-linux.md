@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-django-on-mac-or-linux/
 
 ---
 
+
 ##### Need more depth and/or context about installing Python on Mac out this [tutorial series](/projects/setup-python-and-django-mac). For a complete guide on setting up your macOS for development, check out [this course](/courses/coding-with-macos).
 
 > Looking for [windows installation](https://www.codingforentrepreneurs.com/blog/install-python-django-on-windows/)?
