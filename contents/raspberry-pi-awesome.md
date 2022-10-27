@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/raspberry-pi-awesome/
 
 ---
 
+
 I've found setting up my Raspberry Pi microcontrollers a little cumbersome and, frankly, annoying. Typing the same commands over and over.  Sometimes I need to flash my drive and start from 0. Sometimes I need a new pi. All these things happen over and over. So, here we are, some install scripts to hopefully make our lives easier.
 
 You may hit snags. If you find the solution please comment below and/or make a pull request on our [official Pi Awesome repo](https://github.com/codingforentrepreneurs/Raspberry-Pi-Awesome).
