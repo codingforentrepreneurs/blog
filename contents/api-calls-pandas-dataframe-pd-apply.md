@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/api-calls-pandas-dataframe-pd-a
 
 ---
 
+
 Whenever you're doing data analysis in Python your most likely using [Pandas](https://pandas.pydata.org/) since it's widely used and, most importantly, one of the best tools available for data analytics. Even better, pandas is 100% open-source.
 
 Pandas is only as good as the data it is given. Good data in, good data out. Garbage in, garbage out. That's the ethos of many data scientists around the globe.
