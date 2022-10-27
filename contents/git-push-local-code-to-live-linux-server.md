@@ -7,7 +7,8 @@ url: https://www.codingforentrepreneurs.com/blog/git-push-local-code-to-live-lin
 
 ---
 
-<div class='alert alert-success'>This is the first post of a many part <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>Linux/Ubuntu deployment series</a>. Part two is <a href='https://www.codingforentrepreneurs.com/blog/hello-linux-virtual-environment-working-directory/'>here</a>.</div>
+
+_This is the first post of a many part [Linux/Ubuntu deployment series](https://www.codingforentrepreneurs.com/blog/hello-linux/). Part two is [here](https://www.codingforentrepreneurs.com/blog/hello-linux-virtual-environment-working-directory/)._
 
 
 Git is a version control system. It's a simple way to track changes in your code.
@@ -35,13 +36,13 @@ Let's do this.
 
 *********
 
-### 1. Install git locally and create local repo
+### Step 1. Install git locally and create local repo
 > Did I mention this step is local? 
 
-Download and install via [https://git-scm.com/downloads](https://git-scm.com/downloads) 
+Download and install **git** from [https://git-scm.com/downloads](https://git-scm.com/downloads) .
 
 Then,
-```
+```bash
 mkdir Dev
 cd Dev
 mkdir myproject
@@ -49,24 +50,27 @@ cd myproject
 git init
 ```
 
-### 2. SSH into Live Server
-```
+*********
+
+### Step 2. SSH into Live Server
+```bash
 ssh root@104.248.231.241
 ```
-Replace `root@104.248.231.241` with your user / ip
+Replace `root@104.248.231.241` with your user and ip
 
+*********
 
-### 3. Install git on Server
-```
+### Step 3. Install git on Server
+```bash
 sudo apt-get install git -y 
 
 ```
 
+*********
 
+### Step 4. Create bare git repo
 
-### 4. Create bare git repo
-
-```
+```bash
 cd /var/
 mkdir repo
 cd /var/repo/
@@ -74,91 +78,96 @@ mkdir myproject.git
 cd myproject.git
 ```
 
-#### Starting fresh?
-```
+__Starting fresh?__
+```bash
 git init --bare
 ```
 
-#### Using previous?
-```
+__Using previous?__
+```bash
 git clone https://github.com/codingforentrepreneurs/CFE-Blank-Project . --bare
 ```
 
+*********
 
-### 5. Add `post-receive` hook
+### Step 5. Add `post-receive` hook
 Hooks are very useful for doing things automatically while working with git. 
 
 In our case, we need a hook for after a successful push aka `post-receive` to unpack our code into a server-side working directory.
 
-#### 1. Make initial working directory
-```
+__Make initial working directory__
+```bash
 mkdir /var/www/
 mkdir /var/www/myproject/
 ```
 
-#### 2. View all hook samples:
-```
+__View all hook samples__
+```bash
 ls -al /var/repo/myproject.git/hooks/
 ```
 
-#### 3. Create the actual `post-receive` hook.
-```
+__Create the actual `post-receive` hook__
+```bash
 cd /var/repo/myproject.git/hooks/
 nano post-receive
 ```
 
-In `post-receive`:
-```
+__In `post-receive`__
+```bash
 git --work-tree=/var/www/myproject/ --git-dir=/var/repo/myproject.git/ checkout -f
 ```
 
-#### 4. Make hook executable
-```
+__Make hook executable__
+```bash
 cd /var/repo/myproject.git/hooks/
 chmod +x post-receive
 ```
 
+*********
 
-### 6. Get host name
-```
+### Step 6. Get host name
+```bash
 myip=$(hostname  -I | cut -f1 -d' ')
 echo $myip
 ```
 
 This will yield a value of something like `104.248.231.241` but with your actual value.
 
+*********
 
-#### 7. Add to local git repo
-1. Exit live server
-```
+### Step 7. Add to local git repo
+
+Exit live server
+```bash
 exit
 ```
 
-2. Change into local working directory
+Change into local working directory
 
-```
+```bash
 # on local computer
 cd ~/Dev/myproject
 ```
 
-3. Check git is working... No errors right?
-```
+Check git is working... No errors right?
+```bash
 git status
 ```
 
-4. Add live remote
-```
+Add live remote
+```bash
 git remote add live ssh://root@104.248.231.241/var/repo/myproject.git
 ```
 
 The format is this:
 
-`git remote add <remote-name> ssh://<user>@<ip-or-host>/var/repo/<your-project>.git`
+`git remote add remote-name ssh://your-user@your-host-or-ip-address/var/repo/your-project.git`
 
+*********
 
-#### 8. Make Changes Locally and Push
+### Step 8. Make Changes Locally and Push
 
-```
+```bash
 cd ~/Dev/myproject
 echo "hello there" > test.txt
 git add 'test.txt'
@@ -166,19 +175,28 @@ git commit -m "Local file test"
 git push live master
 ```
 
+*********
 
-#### 9. SSH into your server.... how did it go?
-If it worked. How cool is that? A simple, yet effective way to push code to a server. 
+### Step 9. SSH again into your server.... 
 
-#### 10. Need that code on another local computer?
+```bash
+ssh root@104.248.231.241
 ```
+Can you find your code? How did it go?
+
+*********
+
+### Step 10. Need that code on another local computer?
+```bash
 cd path/to/local/dir
 git init
 git remote add live ssh://root@104.248.231.241/var/repo/myproject.git
 git pull live master
 ```
 
-#### Next steps
+*********
+
+### Next steps
 Part two is [here](https://www.codingforentrepreneurs.com/blog/hello-linux-virtual-environment-working-directory/). 
 
 We'll be covering how to go from local to fully running production code as outline on [the official repo](https://github.com/codingforentrepreneurs/Hello-Linux). We started with git because every great project should start with `git init`.
