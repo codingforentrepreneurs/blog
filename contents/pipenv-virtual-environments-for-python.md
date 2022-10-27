@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/pipenv-virtual-environments-for
 
 ---
 
+
 `Pipenv` is an **amazing** replacement for `virtualenv` and it's highly recommend that your future projects use it. Below is a guide on how to activate your first `pipenv`. I intend to use it on all future Python projects and adapt some older ones (if I can) to using `pipenv`. 
 
 Watch video [below](#watch) or [on youtube](https://youtu.be/K2fNEoZfuy8).
