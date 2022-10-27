@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/custom-domains-zappa-projects-d
 
 ---
 
+
 For web applications, a custom domain is crucial. Doing so with AWS is easy enough. This guide will help you set up your Zappa project to have a custom domain.
 
 First things first, do you own a domain? If so, you'll follow this guide exactly.
