@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-manytomanyfield-via-comm
 
 ---
 
+
 The `ManyToManyField` is super useful for all kinds of data association but it's not exactly user-friendly when it comes to associating this data in the Django admin or in a Django form.
 
 Let's change that. 
