@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/linode-object-storage-for-djang
 
 ---
 
+
 Pushing Django into production takes many different steps to consider. Static files are among the most important steps.
 
 Why is this?
