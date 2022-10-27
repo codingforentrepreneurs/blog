@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/how-to-record-video-in-opencv-p
 
 ---
 
+
 OpenCV makes it simple to record video. Keep in mind that this isn't also recording audio.
 
 Do you need [OpenCV installed click here](https://www.codingforentrepreneurs.com/blog/install-opencv-3-for-python-on-windows/)?
