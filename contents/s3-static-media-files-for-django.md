@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/s3-static-media-files-for-djang
 
 ---
 
+
 Using Amazon Web Services (AWS) S3 For storing static and media files for a Django Project.
 
 
