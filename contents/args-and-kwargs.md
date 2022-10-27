@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/args-and-kwargs/
 
 ---
 
+
 So when you write any given function, that function can have un-named arguments (args) or named (aka keyword) arguments (kwargs). You can also use *args and **kwargs as a "catch all" solution for arguments that you may not have included in defining the original function but might be passed to this function without your knowledge. This is very good practice when overwriting methods (like in Classes).
 
 
