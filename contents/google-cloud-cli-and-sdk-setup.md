@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/google-cloud-cli-and-sdk-setup/
 
 ---
 
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/k-8qFh8EfFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 Google Cloud has a number of awesome services that make creating your projects much more robust. Google pioneered and open-sourced Kubernetes so their cloud service is an obvious choice for deploying Kubernetes as well as many other services.
