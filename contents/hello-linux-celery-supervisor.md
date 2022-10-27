@@ -7,7 +7,8 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-celery-supervisor/
 
 ---
 
-<div class='alert alert-success'>This is the eight post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
+
+_This is the eight post of a many part series. [This post](https://www.codingforentrepreneurs.com/blog/hello-linux/) is the starter post for the whole series._
 
 Celery is a Python package that integrates with Redis (or RabbitMQ) to help offload various functions from your core python app. This is very useful for things like generating repots, processing data, and even scheduling periodic tasks.
 
