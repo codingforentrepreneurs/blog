@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-tutorial-google-geocodin
 
 ---
 
+
 In this short tutorial, we're going to show you how to do API calls to the Google Geocoding API. The purpose is to be able to quickly and easily, grab data from an address, zipcode, or just a city with an API that is a critical piece of Google Maps.
 
 The more we use third party APIs, the better our services can be. The Geocoding API can clean up our address data with very little effort.
