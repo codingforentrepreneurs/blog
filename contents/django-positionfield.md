@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-positionfield/
 
 ---
 
+
 Sometimes you need ordering in relation to a foreign key, this field snippet is a simple way to do so. Usage above, code below.
 
 Original snippet [here](https://kirr.co/rhhof6).
