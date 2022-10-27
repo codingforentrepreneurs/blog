@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/the-top-5-most-used-django-comm
 
 ---
 
+
 Django command line commands as in what you type in the `Terminal` or Command Prompt` depending on your system have two different syntax operations:
 
 - `django-admin <command>`
