@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-channels-to-production/
 
 ---
 
+
 Learn how to deploy a Django Channels project into production. 
 
 #### Entire Project [Code](https://github.com/codingforentrepreneurs/ChatXChannels)
