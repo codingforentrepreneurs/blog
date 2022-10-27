@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-django-on-linux-ubuntu/
 
 ---
 
+
 # Install Django & Virtualenv on Linux Ubuntu with PIP
 > Looking for [windows installation](https://www.codingforentrepreneurs.com/blog/install-python-django-on-windows/)?
 > Looking for [mac installation](https://www.codingforentrepreneurs.com/blog/install-django-on-mac-or-linux)?
