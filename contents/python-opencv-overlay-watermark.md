@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-opencv-overlay-watermark
 
 ---
 
+
 Creating a watermark with OpenCV is not as straightforward as doing the same thing in something like Adobe photoshop. This video is all about how exactly you can set it up yourself and we'll dive deeper into how to access the exact pixel values in the entire video.
 
 Enjoy!
