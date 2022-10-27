@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-x-mongodb/
 
 ---
 
+
 Here's a simple guide to using MongoDB with Django. For this post, I'll be using macOS. If you have a different OS use the install docs [here](https://docs.mongodb.com/manual/administration/install-community/)
 
 
