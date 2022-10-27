@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/third-party-haar-cascades-openc
 
 ---
 
+
 Building on [face recognition with OpenCV](https://www.codingforentrepreneurs.com/blog/opencv-python-face-recognition-and-identification/) and [how to add a watermark and overlay with OpenCV](https://www.codingforentrepreneurs.com/blog/python-opencv-overlay-watermark/), we're going to show you how to add images to your videos based on Third party cascades. 
 
 You see, Haar Cascades are created by various OpenCV developers around the world all the time so it's useful to test them in a practical way. This one shows you how easy it is to do that.
