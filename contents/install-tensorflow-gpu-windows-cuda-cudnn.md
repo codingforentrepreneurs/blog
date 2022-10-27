@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-tensorflow-gpu-windows-
 
 ---
 
+
 So I picked myself up a [GeForce GTX 1080 Ti](http://amzn.to/2DUvLXa) to use with Tensorflow for some deep learning on my *Windows 10* machine.
 
 I hoped the installation process would be as simple as:
