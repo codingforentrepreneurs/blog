@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/open-cv-python-change-video-res
 
 ---
 
+
 Let's assume you're working off something simple like [this](https://www.codingforentrepreneurs.com/blog/opencv-python-web-camera-quick-test/), you might need to change your frame size and/or video resolution from time to time and do so in the code.
 
 OpenCV makes it easy to change resolution of your video.
