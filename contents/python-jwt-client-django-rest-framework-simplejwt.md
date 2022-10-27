@@ -3,7 +3,7 @@ title: A Python JWT Client for Django Rest Framework simplejwt
 slug: python-jwt-client-django-rest-framework-simplejwt
 
 publish_timestamp: Feb. 21, 2022
-url: //www.desalsa.io:8000/blog/python-jwt-client-django-rest-framework-simplejwt/
+url: https://www.codingforentrepreneurs.com/blog/python-jwt-client-django-rest-framework-simplejwt/
 
 ---
 
