@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/use-gmail-for-email-in-django/
 
 ---
 
+
 This is a simple way to setup gmail as your primary email service in Django. A general [configure your email](https://www.codingforentrepreneurs.com/blog/configure-email-in-django/) overview is [here](https://www.codingforentrepreneurs.com/blog/configure-email-in-django/).
 
 > **Gmail** *is not recommended* for a production project (live web application) because gmail is not a transactional email service; gmail is not made web application use and, if abused, could cause you to be banned from gmail. In any case, it's still very useful to test on gmail until you move to a production-ready email service like Sendgrid or Postmark. Full disclosure: we used gmail as our production email service for many months prior to switching to sendgrid. 
