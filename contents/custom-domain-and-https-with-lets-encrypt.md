@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/custom-domain-and-https-with-le
 
 ---
 
+
 <div class='alert alert-success'>This is the sixth post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
 Let's Encrypt is one of the best things to happen to the internet in a long time. It is a provider of security certificates so we can have https for free. Yup free. These certificates _still__ can cost anywhere from $150 to $2k+ USD per year.
