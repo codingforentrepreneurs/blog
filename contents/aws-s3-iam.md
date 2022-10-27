@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/aws-s3-iam/
 
 ---
 
+
 This post is related to an upcoming series that covers making Serverless Apps using Python, AWS Lambda, and API Gateway. 
 
 This S3 & IAM Policy works for nearly *any* project that uses IAM Groups, Users, or Roles that require access to a specific bucket (or buckets). 
