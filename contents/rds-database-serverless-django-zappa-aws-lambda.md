@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/rds-database-serverless-django-
 
 ---
 
+
 This is a critical piece of having a serverless Django application. There are several moving parts that you might have to do several times before you get it right. I know I did.
 
 Please comment below if you find solutions that we missed or experience errors different from below. 
