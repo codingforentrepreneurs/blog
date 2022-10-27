@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/redis-on-windows/
 
 ---
 
+
 Redis is a very popular data store used across all kinds of web apps. Redis, unfortunately, is not natively supported by Windows. Not to worry, you can still use Redis it just takes a few extra steps. 
 
 Here are the options we'll explore:
