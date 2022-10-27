@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/configure-email-in-django/
 
 ---
 
+
 Email configuration is simple. You just go into your `DJANGO_SETTINGS_MODULE` (aka `settings.py`) and add the following:
 
 ```
