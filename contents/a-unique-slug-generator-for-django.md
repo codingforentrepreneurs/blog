@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/a-unique-slug-generator-for-dja
 
 ---
 
+
 Using the [Random String Generator](https://www.codingforentrepreneurs.com/blog/random-string-generator-in-python/), we create unique slugs for any given model. 
 
 ```
