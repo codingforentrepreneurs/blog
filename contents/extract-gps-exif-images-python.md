@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/extract-gps-exif-images-python/
 
 ---
 
+
 Smartphones & DSLRS attach all kinds of meta data to images. This meta data, known as [EXIF Data](https://en.wikipedia.org/wiki/Exif), has attribuates like make, model, and even GPS data about the image itself. This is how Facebook, Instagram, and Twitter, can identify the image's location without you being near it or even allowing "location services" being turned on. 
 
 This post is about implementing a simple script so you can do the same in your projects. Enjoy!
