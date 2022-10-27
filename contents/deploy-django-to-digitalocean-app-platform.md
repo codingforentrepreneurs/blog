@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/deploy-django-to-digitalocean-a
 
 ---
 
+
 In [Prepare Django 3  for DigitalOcean App Platform](https://www.codingforentrepreneurs.com/blog/prepare-django-for-digital-ocean-app-platform) we used the `production-1` branch which is what we'll use here.
 
 The goal of this post is to deploy the first production-ready version of the [Try Django 3.2](https://www.codingforentrepreneurs.com/projects/try-django-3-2) project. 
