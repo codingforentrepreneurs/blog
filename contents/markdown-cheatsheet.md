@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/markdown-cheatsheet/
 
 ---
 
+
 A quick reference to using Markdown. Full reference [here](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet). 
 
 > Please note we have changed the style of how our markdown renders.
