@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/introducing-ask/
 
 ---
 
+
 At CFE, our fundamental goal is to help students launch projects faster. To support this goal, we are proud to be releasing <a href='http://joincfe.com/ask/'>Ask</a> today. 
 
 <a href='http://joincfe.com/ask/'>Ask</a> is a community-powered place to get your questions answered. 
