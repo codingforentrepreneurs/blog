@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/try-django-111-has-landed/
 
 ---
 
+
 Learn Django Basics in the Try Django Tutorial Series. This series is a step-by-step tutorial covering the basics of the Django web framework. 
 
 All reference code is [here](https://github.com/codingforentrepreneurs/Try-Django-1.11)
