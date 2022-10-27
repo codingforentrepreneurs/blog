@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/dark-mode-hook-reactjs/
 
 ---
 
+
 I love dark mode. It's definitely one of my favorite design trends across apps and websites. Below is an example of how the CFE dark mode toggle works.
 
 In this post, we'll create a custom `React.js` hook and context provider to work in any functional component across our projects. 
