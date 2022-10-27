@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/github-workflow-django-digitalo
 
 ---
 
+
 Whenever you aim to release code into production, it's best that you follow pre-defined steps to ensure your application is working as intended.
 
 Perhaps the most important step is to run your automated tests. Below is a github workflow to help you do exactly that.
