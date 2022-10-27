@@ -7,20 +7,21 @@ url: https://www.codingforentrepreneurs.com/blog/django-github-actions/
 
 ---
 
+
 Github actions is an amazing way to automate how your code is pushed into production. In this post, we'll explore how to automate running Django tests with a PostgreSQL database.
 
 It's important to note that Github Actions are incredibly flexible and can really change how you or your team work but it's not the only tool. Gitlab's CI/CD Workflows are also excellent and do roughly the same thing we see below. 
 
 Let's start by creating a workflow that tests our Django code. In the root of your project create the following folders:
 
-```
+```bash
 mkdir -p .github/workflows/
 ```
 Make sure that the `.github` folder (directory) is in the root of your git repo (next to `.git`) otherwise github actions will ignore the folder.
 
 My project looks something like this:
 
-```
+```bash
 .
 ├── .github
 |   └── workflows
@@ -185,6 +186,7 @@ jobs:
     steps:
       ...
 ```
+
 Let's break this down
 
 - `services` is the declaration you must use in order to have other images run during this workflow execution
@@ -274,7 +276,7 @@ We left out a few steps that you might want to consider using:
 `.github/workflows/django-test.yaml`
 
 ```yaml
-name: Example CI Django & Postgres Tests
+name: Example CI Django + Postgres Tests
 
 # Controls when the workflow will run
 on:
