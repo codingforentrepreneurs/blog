@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-app-structure/
 
 ---
 
+
 To make your individual Django app more portable (that is easier to move to other projects), you can use the following structure. In this one we called the app "posts".
 
 ```
