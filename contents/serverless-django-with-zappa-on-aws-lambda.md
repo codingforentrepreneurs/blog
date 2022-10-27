@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/serverless-django-with-zappa-on
 
 ---
 
+
 Going serverless with Django and Zappa is *mostly* painless. It can be tedious but implementing Zappa with Django could have some serious impact on your bottom line and user experience. I'll cover Zappa / Serverless benefits another time but for now, let's just make it happen.
 
 ## First things first, Setup AWS
