@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/deep-learning-acronym-cheatshee
 
 ---
 
+
 Below as a list I'm working on to compile all the various acronyms in Deep Learning. Please share yours in the comments!
 
 | Acronym | Name  |
