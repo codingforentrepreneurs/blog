@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-syncdb/
 
 ---
 
+
 Yup `python manage.py syncdb` is no more. Here's the simple updates:
 
 ### Old commands:
