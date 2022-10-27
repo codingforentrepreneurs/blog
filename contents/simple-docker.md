@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/simple-docker/
 
 ---
 
+
 Docker is all the rage. I cover it more in depth on [this post](https://www.codingforentrepreneurs.com/blog/django-docker-production-heroku/) but I wanted to show you how to use the absolute basics of Docker. 
 
 Let's get started.
