@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-nginx-and-ufw-firew
 
 ---
 
+
 <div class='alert alert-success'>This is the fifth post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
 Nginx is free, open-source, high-performance HTTP server and reverse proxy. Pronounced "Engine X"
