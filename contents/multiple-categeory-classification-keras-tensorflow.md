@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/multiple-categeory-classificati
 
 ---
 
+
 In this one, we'll be creating a deep neural network since it will help us do is find patterns in a large amount of data to make the best possible prediction on new data. Before we get started, let's revisit an old adage:
 
 > Good data in, good data out. Garbage in, garbage out.
