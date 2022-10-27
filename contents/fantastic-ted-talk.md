@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/fantastic-ted-talk/
 
 ---
 
+
 This is by far one of the most important ted talks I've seen in a while.
 
 [https://youtu.be/-MTRxRO5SRA](https://youtu.be/-MTRxRO5SRA)
