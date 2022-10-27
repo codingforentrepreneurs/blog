@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/version-control-with-git-basics
 
 ---
 
+
 Putting code into production is made much easier thanks to the concept of version control and the technology known as `git`.
 
 Think of version control as a way to track & review your *"save"* history across many files and many lines of text.
