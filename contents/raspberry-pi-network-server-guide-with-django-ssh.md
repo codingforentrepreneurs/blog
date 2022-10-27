@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/raspberry-pi-network-server-gui
 
 ---
 
+
 In this post, we'll be setting up a Raspberry PI (Series 3 Model B) on our network so we can connect via SSH as well as setup a Django project on the PI that will be served on our network aka **hosting and serving a Django project on a Raspberry Pi **using our local network and Apache.
 
 [Watch the Series](https://www.codingforentrepreneurs.com/projects/homebaked-raspberry-pi-django/)
