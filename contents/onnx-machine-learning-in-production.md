@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/onnx-machine-learning-in-produc
 
 ---
 
+
 I recently had a project that I needed to use PyInstaller along with a Keras-trained model. Unfortunately, PyInstaller and Keras only work some of the time.. as in, not that reliable of a build.
 
 ### What to do?
@@ -48,10 +49,10 @@ Whenever you build a Python project, use a virtual environment of some kind. For
 - Python 3.7
 - `venv` (and not my preferred `pipenv`)
 
-```
+```bash
 $ cd path/to/your/dev/folder
 ```
-```
+```bash
 $ mkdir cfe_onnx
 $ cd cfe_onnx
 $ python3.7 -m venv .
@@ -59,20 +60,20 @@ $ python3.7 -m venv .
 
 ##### Activate
 **Mac/Linux**
-```
+```bash
 source bin/activate
 ```
 
 **Windows**
 
-```
+```bash
 .\Scripts\activate
 ```
 
 
 #### Step 2. Installations
 
-```
+```bash
 pip install tensorflow keras2onnx onnxruntime numpy pillow
 ```
 - `tensorflow`: our machine learning framework (but using `tf.keras` which is built-in to tensorflow now)
@@ -86,7 +87,7 @@ pip install tensorflow keras2onnx onnxruntime numpy pillow
 #### Step 3. Export a Keras Model to an Onnx Model
 As outlined in the `keras2onnx` [docs](https://github.com/onnx/keras-onnx), I'm going to just be using a pre-trained Keras model for illustration purposes, change as needed:
 
-```
+```python
 from keras.applications.resnet50 import ResNet50
 model = ResNet50(include_top=True, weights='imagenet')
 model.save("model.h5")
@@ -94,7 +95,7 @@ model.save("model.h5")
 
 
 **Now run the conversion**
-```
+```python
 onnx_model = keras2onnx.convert_keras(model, model.name)
 keras2onnx.save_model(onnx_model,  'model.onnx')
 ```
@@ -114,7 +115,7 @@ The above model is for Image Classification (aka `imagenet`), so we have to be s
 
 
 ##### Preprocessing
-```
+```python
 # preprocessing.py
 import numpy as np
 from PIL import Image
@@ -140,7 +141,7 @@ def process_image(image_path, height=150, width=150):
 ##### Response Encoding
 Below is a `json` encoder that converts numpy data types.
 
-```
+```python
 # encoding.py
 import numpy as np
 import json 
@@ -179,7 +180,7 @@ def get_numpy_response():
 
 #### Step 5. Predictions with Onnx
 
-```
+```python
 # predict.py
 import json
 import pathlib
