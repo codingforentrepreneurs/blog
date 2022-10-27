@@ -7,4 +7,5 @@ url: https://www.codingforentrepreneurs.com/blog/but-what-are-django-signals/
 
 ---
 
-[[ youtube id="rEX50LJrFuU" ]]
+
+Watch this one on [YouTube](https://www.youtube.com/watch?v=rEX50LJrFuU).
