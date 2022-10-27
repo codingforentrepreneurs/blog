@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/using-ssh-creating-ssh-keys/
 
 ---
 
+
 #### [Video](https://www.codingforentrepreneurs.com/projects/ssh/ssh-ssh-keygen)
 
 Using a Secure Shell (`ssh`) will allow your local computer to communicate with a live server. `ssh` will allow you to run commands, install software, setup a server, and do all kinds of interesting things.
