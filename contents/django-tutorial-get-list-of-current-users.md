@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-tutorial-get-list-of-cur
 
 ---
 
+
 We get this question a good amount so we decided to create a little guide on how to solve it. Below was designed for `Django 1.9` but will likely work in future iterations of Django. 
 
 This is not a perfect method for getting a list of current users, but it's definitely a doable one. So, let's get started.
