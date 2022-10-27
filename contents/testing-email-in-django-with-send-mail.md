@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/testing-email-in-django-with-se
 
 ---
 
+
 Sometimes you need to test that your Django project is sending email correctly. Here's a way to test it.
 
 First, in your `settings.py` (or Django settings module), you should have the following set to your email provider:
