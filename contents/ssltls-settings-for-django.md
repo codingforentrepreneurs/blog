@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/ssltls-settings-for-django/
 
 ---
 
+
 Let's make your Django project's settings exactly what we do [here](https://www.codingforentrepreneurs.com/blog/create-a-blank-django-project/). Once you do that, you'll have a `production.py` file. That's where we'll be working. 
 
 - Make sure your host has the ability to secure sites like these do: [Heroku](https://www.codingforentrepreneurs.com/projects/heroku/), [Elastic Beanstalk](https://www.codingforentrepreneurs.com/projects/elastic-beanstalk/), [Linode](https://www.codingforentrepreneurs.com/projects/linode/), [Webfaction](https://www.codingforentrepreneurs.com/projects/webfaction/), and [Digital Ocean](https://www.codingforentrepreneurs.com/projects/digital-ocean/). 
