@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-on-docker/
 
 ---
 
+
 As you may know, Django is a web application framework written in Python aka it's a bunch of Python code. What version of Python? Ideally 3.7 and up. Before we jump into the Docker of it all, let's start with a simple Django project. 
 
 Are you new to Django? Be sure to get some experience first like watching [this series](https://www.youtube.com/watch?v=SlHBNXW1rTk&list=PLEsfXFp6DpzRMby_cSoWTFw8zaMdTEXgL).
