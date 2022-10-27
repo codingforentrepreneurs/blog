@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/datetime-monthly-ranges/
 
 ---
 
+
 Every once and a while you need to get monthly ranges in Python. Below is some code that will help you do exactly that. 
 
 At the end of [Charts.js + Django](https://www.codingforentrepreneurs.com/blog/django-and-chartjs/), I left you with the challenge to try and implement monthly data related to displaying on your charts. This is the Python-specific part... can you use this to integrate it with Django? 
