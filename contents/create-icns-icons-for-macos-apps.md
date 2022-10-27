@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/create-icns-icons-for-macos-app
 
 ---
 
+
 I've been working a lot with Electron and PyWebView lately and thus needed to create some icons for my projects.
 
 macOS apps require the file type 'icns' for app icons. 
