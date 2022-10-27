@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/how-to-apply-image-filters-in-o
 
 ---
 
+
 Add your own image filters on OpenCV and Python with this tutorial. 
 We're building off techniques we used in previous videos in this [youtube playlist](https://www.youtube.com/playlist?list=PLEsfXFp6DpzRyxnU-vfs3vk-61Wpt7bOS).
 
