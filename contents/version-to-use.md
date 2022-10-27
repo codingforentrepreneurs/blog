@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/version-to-use/
 
 ---
 
+
 When you watch or read tutorials sometimes the version of software is different than the version you might be working with already. With our tutorials, we 100% always recommend you **stick with the version in the video** otherwise little things will cause big headaches. 
 
 For example, `urls.py` has changed slightly from version to version as seen [here](https://www.codingforentrepreneurs.com/blog/new-url-structure-django-110) so this minor, yet long-term important, change will cause a lot of frustration while learning if you stick with the wrong version.
