@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/opencv-python-face-recognition-
 
 ---
 
+
 I'm really starting to enjoy working with OpenCV. 
 
 In this one, we implement a simple way to recognize faces and run training on a variety of known images for face identification all using just OpenCV. 
