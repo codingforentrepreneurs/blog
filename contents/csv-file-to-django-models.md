@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/csv-file-to-django-models/
 
 ---
 
+
 Handling and parsing CSV (comma separated values) files using Python and Django will enable a whole new way to use data in your project. The concept is pretty simple since the CSV file is so common and very easily parsed in Python. The code below is an example implementation of using a Django Model with a csv file. 
 
 
