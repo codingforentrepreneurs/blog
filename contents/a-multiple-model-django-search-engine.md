@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/a-multiple-model-django-search-
 
 ---
 
+
 The Django [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) makes it simple to search. In this one, we'll create an internal search that can be rather useful.
 
 Getting lost on this guide? Perhaps watching any of the [Try Django](https://www.codingforentrepreneurs.com/tags/try-django/) series would help.
