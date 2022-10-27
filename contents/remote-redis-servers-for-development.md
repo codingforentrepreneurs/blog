@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/remote-redis-servers-for-develo
 
 ---
 
+
 ### Using Virtual Machines for Redis during Development
 
 In this guide, I am going to show you how to run a remote redis server in nearly any virtual machine. The goal is to do as *little* as possible in configuring our instance while gaining all the benefits of using a near production-ready instance of Redis.
