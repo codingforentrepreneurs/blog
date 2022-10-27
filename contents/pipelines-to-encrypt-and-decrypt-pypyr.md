@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/pipelines-to-encrypt-and-decryp
 
 ---
 
+
 In the [Ai as an API](https://www.codingforentrepreneurs.com/projects/aiasanapi) series, we use `cassandra-driver` to connect to our production AstraDB. To connect using this driver, it currently requires us to use a secured zip file. 
 
 The problem: _how do we keep a folder full of sensitive files secure when using git?_
