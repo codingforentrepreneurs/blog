@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/deploy-django-on-docker-to-hero
 
 ---
 
+
 Building off [this post](https://www.codingforentrepreneurs.com/blog/django-on-docker-a-simple-introduction) we're going to be deploying a Django on Docker project to [Heroku](heroku.com).
 
 
