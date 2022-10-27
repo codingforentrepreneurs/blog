@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-opencv-3-for-python-on-
 
 ---
 
+
 OpenCV, aka Open Computer Vision, is an incredible library for doing everything from Face Recognition, Object Recognition, to edge detection, image manipulation, and much more. This guide is to help you get it installed on your Windows 10 computer.
 
 **[Mac OS OpenCV Python Install Guide](https://www.codingforentrepreneurs.com/blog/install-opencv-3-for-python-on-mac)**
