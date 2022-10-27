@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/create-a-one-off-django-secret-
 
 ---
 
+
 When you bring Django into Production, it's smart to put your `SECRET_KEY` into environment variables. What's better, is rotating your secret key from time to time. Here's a simple way to create a new secret key using a buil-in django method:
 
 
