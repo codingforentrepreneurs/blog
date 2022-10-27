@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/the-purpose-of-business/
 
 ---
 
+
 Businesses exist to create value. That's their sole purpose. As soon as they no longer create enough value, they no longer exist. 
 
 ** Time is Money ** is backwards. It should be *Money is Time*. Or rather, money is a __subset__ of time. 
