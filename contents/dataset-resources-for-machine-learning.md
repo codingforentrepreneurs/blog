@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/dataset-resources-for-machine-l
 
 ---
 
+
 In our [Machine Learning](/courses/machine-learning) (ML) course, we discuss the importance of `good data in, good data out` and this post is meant to be a long-term reference of finding quality datasets. 
 
 This is certainly not exhaustive but if you have found datasets that we are missing, please comment below.
