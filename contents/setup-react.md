@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/setup-react/
 
 ---
 
+
 > Watch [this series](https://www.codingforentrepreneurs.com/projects/try-reactjs-2021) to build a React.js project from scratch.
 
 Below is a reference to setup a React.js project on your local machine. We'll be updating it from time to time so please let us know in the comments if you have anything we should add.  For more React.js projects, posts, courses and more, check out [this link](https://www.codingforentrepreneurs.com/topics/react/).
