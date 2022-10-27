@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-asyncio-web-scraping/
 
 ---
 
+
 A lot of Python programs are Synchronous, meaning all functions happen sequentially, in order, and in a way that seems to be intuitive, especially for a new programmer. 
 
 Synchronous is like "hey program do A and then B and then C". The program does "A", once "A" is done, it does "B", once B is done, it does "C". 
