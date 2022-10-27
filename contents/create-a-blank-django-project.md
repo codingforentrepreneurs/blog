@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/create-a-blank-django-project/
 
 ---
 
+
 #### A how-to guide for creating a Django project for use in both Local & Production (deployment) environments.
 ----------
 _Guide Updated for [pipenv](https://www.codingforentrepreneurs.com/blog/pipenv-virtual-environments-for-python) & [Django 3.1](https://www.djangoproject.com/download/)_
