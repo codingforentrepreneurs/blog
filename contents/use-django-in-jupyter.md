@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/use-django-in-jupyter/
 
 ---
 
+
 Below is a simple method to use a Django project inside Jupyter's standard running (ie `jupyter notebook`) instead of using a Django-managed jupyter server (ie `python manage.py shell_plus --notebook`).
 
 It's true packages exist to make it "easy" to use Django inside of a Jupyter notebook. I seem to always run into issues successfully running these packages. I've found the below method useful although I cannot recall how I discovered how this works (aka attribution needed).
