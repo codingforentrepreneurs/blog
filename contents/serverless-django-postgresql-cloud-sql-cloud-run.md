@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/serverless-django-postgresql-cl
 
 ---
 
+
 Below is a reference guide for the [Serverless Django](https://www.codingforentrepreneurs.com/projects/serverless-django) project.
 
 I created it as a configuration overview for using Django on Google Cloud Run as a Serverless Application using Google Cloud SQL's postgres database.
