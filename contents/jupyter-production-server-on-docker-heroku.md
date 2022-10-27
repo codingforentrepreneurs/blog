@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/jupyter-production-server-on-do
 
 ---
 
+
 Jupyter is a tool for running interactive notebooks; basically add Python with Markdown and you've got Jupyter. if you haven't used it before, I recommend you do. 
 
 In this post, I'm going to show you how to deploy a Jupyter Notebook server on Heroku using Docker. You can watch how this is all done step-by-step [here](https://www.codingforentrepreneurs.com/projects/jupyter-x-docker) (YouTube version embedded at the end too).
