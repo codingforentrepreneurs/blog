@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/setup-install-ionic/
 
 ---
 
+
 Ionic is a framework for building native mobile apps using web technologies. The related docs are [here](https://ionicframework.com/docs/).
 
 Ionic is built on Angular so you'll definitely want to know [some Angular](https://www.codingforentrepreneurs.com/tags/angular/) and [TypeScript](https://www.codingforentrepreneurs.com/projects/getting-started-typescript/) before jumping in. 
