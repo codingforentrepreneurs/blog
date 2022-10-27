@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/opencv-python-extract-faces-res
 
 ---
 
+
 We're going to build a REST API with Flask to extract faces from images using OpenCV. 
 
 More context coming soon. 
