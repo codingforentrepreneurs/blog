@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/angularjs-vs-jquery/
 
 ---
 
+
 ### AngularJS is a framework
 ### jQuery is a library
 
