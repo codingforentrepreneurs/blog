@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/html-template-to-pdf-in-django/
 
 ---
 
+
 A guide to using an HTML template to create a PDF via a `render_to_pdf` utility function.
 
 
