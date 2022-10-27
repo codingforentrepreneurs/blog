@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/facebook-messenger-bot-with-dja
 
 ---
 
+
 We still have to do a live test on this one so keep in mind you might find a bug or two until we do a live test. In the meantime... enjoy!
 
 
