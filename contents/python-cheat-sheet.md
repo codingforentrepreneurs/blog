@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-cheat-sheet/
 
 ---
 
+
 A quick reference guide for using the Python Programming language.
 
 [Strings](#strings)
@@ -268,3 +269,4 @@ Notice the `float`/`decimal` number as part of the equation.
 n = 2
 print(9 ** (1.0/n))
 ```
+
