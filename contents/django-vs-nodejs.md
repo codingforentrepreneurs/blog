@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-vs-nodejs/
 
 ---
 
+
 In this post, I'll address a common question I get:
 
 ***Which is better Django or Node.js?***
