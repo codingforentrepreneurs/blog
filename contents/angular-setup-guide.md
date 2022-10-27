@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/angular-setup-guide/
 
 ---
 
+
 This is a step-by-step setup guide to setup Angular v.5, the latest version of Angular 2, on your computer. Adapted from docs on [Angular CLI](https://angular.io/docs/ts/latest/cli-quickstart.html).
 
 ### 1. Install Node.js from [here](https://nodejs.org/en/download/)
