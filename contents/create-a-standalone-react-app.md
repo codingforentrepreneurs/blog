@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/create-a-standalone-react-app/
 
 ---
 
+
 This post will answer the following questions:
 - How do we build a standalone React app without installing a bunch of npm packages?
 - How do we ensure it's minified?
