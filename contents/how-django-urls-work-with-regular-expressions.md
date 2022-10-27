@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/how-django-urls-work-with-regul
 
 ---
 
+
 Let's better understand Django's url routing. We're going to be looking into specifically Regular Expression URL Routing with Django's `re_path` ([docs](https://docs.djangoproject.com/en/2.0/ref/urls/#re-path)) (just `url` ([docs](https://docs.djangoproject.com/en/2.0/ref/urls/#url)) in Django < 2.0) module.
 
 Watch it [here](#watch) or on [youtube](https://youtu.be/8rExil_EWtk)
