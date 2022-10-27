@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/sendgrid-email-settings-for-dja
 
 ---
 
+
 *[Sendgrid](https://sendgrid.com/)* is a **production-ready** transactional email service you can use in your business. With transactional email services you can:
 - *White label*: your email address (hi@yourdomain.com)
 - *Spam-less*: Send a LOT of email without being spammed automatically which is likely to happen if you don't use a transactional email service.
