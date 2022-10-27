@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/upgrade-all-pip-python-packages
 
 ---
 
+
 <div class='alert alert-warning'>This guide is no longer maintained. Please consider <a href='https://www.codingforentrepreneurs.com/blog/pipenv-virtual-environments-for-python'>pipenv</a> instead.</div>
 
 The code below is a script to update your virtualenv's python-install packages. It also creates a requirements history for your packages for future reference if you need it. 
