@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/common-regular-expressions-for-
 
 ---
 
+
 A list of common regular expressions for use in Django url's regex. Learn how [Python Regular Expressions](https://www.codingforentrepreneurs.com/blog/how-django-urls-work-with-regular-expressions/) work as they relate to Django.
 
 
