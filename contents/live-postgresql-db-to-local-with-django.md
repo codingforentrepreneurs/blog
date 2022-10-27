@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/live-postgresql-db-to-local-wit
 
 ---
 
+
 I've used [Django fixtures](https://docs.djangoproject.com/en/2.1/howto/initial-data/) a good amount to ensure my local database had at least some of the same data as my live database.
 
 The problem is, of course, fixtures are not the same as your actual database.  They are abstractions.
