@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-queryset-to-csv-files-da
 
 ---
 
+
 Django QuerySets to CSVs is a useful feature when you're wanting export data in a meaningful way. This is also useful, in my opinion, because QuerySets are easier to work with than raw SQL queries. 
 
 Here's what we're going to do:
