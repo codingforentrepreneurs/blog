@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/activate-reactivate-deactivate-
 
 ---
 
+
 <div class='alert alert-warning'>
 Virtualenv is still great but we now officially recommend using <a href='https://www.codingforentrepreneurs.com/blog/pipenv-virtual-environments-for-python/'>pipenv</a> instead. 
 </div>
