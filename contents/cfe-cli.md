@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/cfe-cli/
 
 ---
 
+
 <div class='alert alert-warning'>
 The <b>cfe-cli</b> has been deprecated. Please use <a href='https://www.codingforentrepreneurs.com/blog/pipenv-virtual-environments-for-python/'>pipenv</a> instead. 
 </div>
