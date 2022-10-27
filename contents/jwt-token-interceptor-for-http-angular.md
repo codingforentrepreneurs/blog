@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/jwt-token-interceptor-for-http-
 
 ---
 
+
 Below is a snippet that's useful for using authentication tokens (such as a CSRF Token or a JWT token) within Angular (not AngularJS) for any/all requests. 
 
 We show you how to implement it exact in the [Angular Integration](https://www.codingforentrepreneurs.com/courses/django-angular-ionic/angular-integration/) section of [Django + Angular + Ionic](https://www.codingforentrepreneurs.com/courses/django-angular-ionic/)
