@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/prepare-django-for-digital-ocea
 
 ---
 
+
 This post is a reference guide for the [Try Django 3.2](https://www.codingforentrepreneurs.com/projects/try-django-3-2) series. 
 
 
