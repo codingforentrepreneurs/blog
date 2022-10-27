@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/our-tech/
 
 ---
 
+
 Below is the technology and hardware that drives our business.
 ------------
 # Software:
