@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-foreign-keys-limiting-ch
 
 ---
 
+
 I'm going to assume you're not a beginner for this one. If you are, check out [this series]() and come back to this post.
 
 The problem we're going to solve is a simple one: limit foreign key choices based on any arbitrary lookup like: 
