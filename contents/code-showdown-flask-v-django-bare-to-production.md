@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/code-showdown-flask-v-django-ba
 
 ---
 
+
 Hey there,
 
 In this video, I break down how to deploy a project on both Flask and Django. The point of this is to share how similar these two frameworks can be while also showing you their differences.
