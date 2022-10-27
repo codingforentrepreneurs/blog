@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/new-url-structure-django-110/
 
 ---
 
+
 Django 1.10 has changed the requirements for urls.py and how you call views.
 
 If you've ever seen the error: "view must be a callable or a list/tuple in the case of include() ..." or something of that sort then you definitely need this short post. Read below for what your `urls.py` should be depending on your Django version.
