@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/local-domain-subdomain-testing-
 
 ---
 
+
 What to do when you want to test a domain name locally? Such as `www.yourawesomeproject.com` or what about a subdomain (aka wildcard domain) like `blog.yourawesomeproject.com` or `jmitchel3.yourawesomeproject.com`? Here's a quick guide to do it:
 
 1.  Open up **terminal**
