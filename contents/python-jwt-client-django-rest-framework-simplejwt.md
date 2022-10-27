@@ -7,7 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-jwt-client-django-rest-f
 
 ---
 
-In this blog post, we&#x27;ll look at an example Python client for authentication via JSON Web Tokens (JWT). The code below is meant to be used as a snippet you can modify as you need. If you have questions or comments, please write them below.
+In this blog post, we'll look at an example Python client for authentication via JSON Web Tokens (JWT). The code below is meant to be used as a snippet you can modify as you need. If you have questions or comments, please write them below.
 
 If you want full context on how to use this code, consider watching our [Django Rest Framework tutorial series](https://www.codingforentrepreneurs.com/projects/django-rest-framework-2022/).
 
@@ -39,16 +39,16 @@ from products.views import product_list_create_view
 
 urlpatterns = [
     ...
-    path(&#x27;api/token/&#x27;, TokenObtainPairView.as_view(), name=&#x27;token_obtain_pair&#x27;),
-    path(&#x27;api/token/refresh/&#x27;, TokenRefreshView.as_view(), name=&#x27;token_refresh&#x27;),
-    path(&#x27;api/token/verify/&#x27;, TokenVerifyView.as_view(), name=&#x27;token_verify&#x27;),
-    path(&#x27;api/products/&#x27;, product_list_create_view, name=&#x27;product-list&#x27;),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('api/token/verify/', TokenVerifyView.as_view(), name='token_verify'),
+    path('api/products/', product_list_create_view, name='product-list'),
 ]
 ```
-&gt; For simplicity of this post, this `urls.py` *does not exactly match* how the urls are written in the [Django Rest Framework](https://www.codingforentrepreneurs.com/projects/django-rest-framework-2022/) tutorial or [github repo](https://github.com/codingforentrepreneurs/Django-Rest-Framework-Tutorial). This post does, however, match how they are *configured* (ie the same url paths point to the same views).
+> For simplicity of this post, this `urls.py` *does not exactly match* how the urls are written in the [Django Rest Framework](https://www.codingforentrepreneurs.com/projects/django-rest-framework-2022/) tutorial or [github repo](https://github.com/codingforentrepreneurs/Django-Rest-Framework-Tutorial). This post does, however, match how they are *configured* (ie the same url paths point to the same views).
 
 
-Here&#x27;s the client:
+Here's the client:
 
 ```python
 from dataclasses import dataclass
@@ -60,182 +60,182 @@ import json
 
 @dataclass
 class JWTClient:
-    &quot;&quot;&quot;
+    """
     Use a dataclass decorator
     to simply the class construction
-    &quot;&quot;&quot;
+    """
     access:str = None
     refresh:str = None
     # ensure this matches your simplejwt config
-    header_type: str = &quot;Bearer&quot;
+    header_type: str = "Bearer"
     # this assumesy ou have DRF running on localhost:8000
-    base_endpoint = &quot;http://localhost:8000/api&quot;
+    base_endpoint = "http://localhost:8000/api"
     # this file path is insecure
-    cred_path: pathlib.Path = pathlib.Path(&quot;creds.json&quot;)
+    cred_path: pathlib.Path = pathlib.Path("creds.json")
 
     def __post_init__(self):
         if self.cred_path.exists(): 
-            &quot;&quot;&quot;
+            """
             You have stored creds,
-            let&#x27;s verify them
+            let's verify them
             and refresh them.
             If that fails,
             restart login process.
-            &quot;&quot;&quot;
+            """
             try:
                 data = json.loads(self.cred_path.read_text())
             except Exception:
-                print(&quot;Assuming creds has been tampered with&quot;)
+                print("Assuming creds has been tampered with")
                 data = None
             if data is None:
-                &quot;&quot;&quot; 
+                """ 
                 Clear stored creds and
                 Run login process
-                &quot;&quot;&quot;
+                """
                 self.clear_tokens()
                 self.perform_auth()
             else:
-                &quot;&quot;&quot;
+                """
                 `creds.json` was not tampered with
-                Verify token -&gt; 
-                if necessary, Refresh token -&gt;
+                Verify token -> 
+                if necessary, Refresh token ->
                 if necessary, Run login process
-                &quot;&quot;&quot;
-                self.access = data.get(&#x27;access&#x27;)
-                self.refresh = data.get(&#x27;refresh&#x27;)
+                """
+                self.access = data.get('access')
+                self.refresh = data.get('refresh')
                 token_verified = self.verify_token()
                 if not token_verified:
-                    &quot;&quot;&quot;
+                    """
                     This can mean the token has expired
                     or is invalid. Either way, attempt
                     a refresh.
-                    &quot;&quot;&quot;
+                    """
                     refreshed = self.perform_refresh()
                     if not refreshed:
-                        &quot;&quot;&quot;
+                        """
                         This means the token refresh
                         also failed. Run login process
-                        &quot;&quot;&quot;
-                        print(&quot;invalid data, login again.&quot;)
+                        """
+                        print("invalid data, login again.")
                         self.clear_tokens()
                         self.perform_auth()
         else:
-            &quot;&quot;&quot;
+            """
             Run login process
-            &quot;&quot;&quot;
+            """
             self.perform_auth()
         
     def get_headers(self, header_type=None):
-        &quot;&quot;&quot;
+        """
         Default headers for HTTP requests
         including the JWT token
-        &quot;&quot;&quot;
+        """
         _type = header_type or self.header_type
         token = self.access
         if not token:
             return {}
         return {
-                &quot;Authorization&quot;: f&quot;{_type} {token}&quot;
+                "Authorization": f"{_type} {token}"
         }
 
     def perform_auth(self):
-        &quot;&quot;&quot;
+        """
         Simple way to perform authentication
         Without exposing password(s) during the
         collection process.
-        &quot;&quot;&quot;
-        endpoint = f&quot;{self.base_endpoint}/token/&quot; 
-        username = input(&quot;What is your username?\n&quot;)
-        password = getpass(&quot;What is your password?\n&quot;)
-        r = requests.post(endpoint, json={&#x27;username&#x27;: username, &#x27;password&#x27;: password}) 
+        """
+        endpoint = f"{self.base_endpoint}/token/" 
+        username = input("What is your username?\n")
+        password = getpass("What is your password?\n")
+        r = requests.post(endpoint, json={'username': username, 'password': password}) 
         if r.status_code != 200:
-            raise Exception(f&quot;Access not granted: {r.text}&quot;)
-        print(&#x27;access granted&#x27;)
+            raise Exception(f"Access not granted: {r.text}")
+        print('access granted')
         self.write_creds(r.json())
 
     def write_creds(self, data:dict):
-        &quot;&quot;&quot;
+        """
         Store credentials as a local file
         and update instance with correct
         data.
-        &quot;&quot;&quot;
+        """
         if self.cred_path is not None:
-            self.access = data.get(&#x27;access&#x27;)
-            self.refresh = data.get(&#x27;refresh&#x27;)
+            self.access = data.get('access')
+            self.refresh = data.get('refresh')
             if self.access and self.refresh:
                 self.cred_path.write_text(json.dumps(data))
     
     def verify_token(self):
-        &quot;&quot;&quot;
+        """
         Simple method for verifying your
         token data. This method only verifies
         your `access` token. A 200 HTTP status
         means success, anything else means failure.
-        &quot;&quot;&quot;
+        """
         data = {
-            &quot;token&quot;: f&quot;{self.access}&quot;
+            "token": f"{self.access}"
         }
-        endpoint = f&quot;{self.base_endpoint}/token/verify/&quot; 
+        endpoint = f"{self.base_endpoint}/token/verify/" 
         r = requests.post(endpoint, json=data)
         return r.status_code == 200
     
     def clear_tokens(self):
-        &quot;&quot;&quot;
+        """
         Remove any/all JWT token data
         from instance as well as stored
         creds file.
-        &quot;&quot;&quot;
+        """
         self.access = None
         self.refresh = None
         if self.cred_path.exists():
             self.cred_path.unlink()
     
     def perform_refresh(self):
-        &quot;&quot;&quot;
+        """
         Refresh the access token by using the correct
         auth headers and the refresh token.
-        &quot;&quot;&quot;
-        print(&quot;Refreshing token.&quot;)
+        """
+        print("Refreshing token.")
         headers = self.get_headers()
         data = {
-            &quot;refresh&quot;: f&quot;{self.refresh}&quot;
+            "refresh": f"{self.refresh}"
         }
-        endpoint = f&quot;{self.base_endpoint}/token/refresh/&quot; 
+        endpoint = f"{self.base_endpoint}/token/refresh/" 
         r = requests.post(endpoint, json=data, headers=headers)
         if r.status_code != 200:
             self.clear_tokens()
             return False
         refresh_data = r.json()
-        if not &#x27;access&#x27; in refresh_data:
+        if not 'access' in refresh_data:
             self.clear_tokens()
             return False
         stored_data = {
-            &#x27;access&#x27;: refresh_data.get(&#x27;access&#x27;),
-            &#x27;refresh&#x27;: self.refresh
+            'access': refresh_data.get('access'),
+            'refresh': self.refresh
         }
         self.write_creds(stored_data)
         return True
 
     def list(self, endpoint=None, limit=3):
-        &quot;&quot;&quot;
+        """
         Here is an actual api call to a DRF
         View that requires our simplejwt Authentication
         Working correctly.
-        &quot;&quot;&quot;
+        """
         headers = self.get_headers()
         if endpoint is None or self.base_endpoint not in str(endpoint):
-            endpoint = f&quot;{self.base_endpoint}/products/?limit={limit}&quot; 
+            endpoint = f"{self.base_endpoint}/products/?limit={limit}" 
         r = requests.get(endpoint, headers=headers) 
         if r.status_code != 200:
-            raise Exception(f&quot;Request not complete {r.text}&quot;)
+            raise Exception(f"Request not complete {r.text}")
         data = r.json()
         return data
 
 
-if __name__ == &quot;__main__&quot;:
-    &quot;&quot;&quot;
-    Here&#x27;s Simple example of how to use our client above.
-    &quot;&quot;&quot;
+if __name__ == "__main__":
+    """
+    Here's Simple example of how to use our client above.
+    """
     
     # this will either prompt a login process
     # or just run with current stored data
@@ -245,13 +245,13 @@ if __name__ == &quot;__main__&quot;:
     # request to our /api/products/ endpoint
     lookup_1_data = client.list(limit=5)
     # We used pagination at our endpoint so we have:
-    results = lookup_1_data.get(&#x27;results&#x27;)
-    next_url = lookup_1_data.get(&#x27;next&#x27;)
-    print(&quot;First lookup result length&quot;, len(results))
+    results = lookup_1_data.get('results')
+    next_url = lookup_1_data.get('next')
+    print("First lookup result length", len(results))
     if next_url:
         lookup_2_data = client.list(endpoint=next_url)
-        results += lookup_2_data.get(&#x27;results&#x27;)
-        print(&quot;Second lookup result length&quot;, len(results))
+        results += lookup_2_data.get('results')
+        print("Second lookup result length", len(results))
 ```
 
 Do you have ways to improve? Please comment below and use [Markdown format](https://www.codingforentrepreneurs.com/blog/markdown-cheatsheet/) when pasting code.
