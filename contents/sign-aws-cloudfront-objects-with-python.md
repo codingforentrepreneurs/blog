@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/sign-aws-cloudfront-objects-wit
 
 ---
 
+
 How do you enable faster downloading of your private media assets everywhere in the world? The short answer is using a Content Delivery Network (CDN). In this guide, I'll show you how to do exactly that using AWS CloudFront.
 
 CloudFront is an Amazon Web Services (AWS) API that turns your AWS S3 Bucket into a reliable, fast, and inexpensive way to distribute your media (images, videos, pds, javascript, css, etc) around the world as quickly as possible (aka a CDN). 
