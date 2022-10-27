@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/download-aws-s3-files-python-dj
 
 ---
 
+
 The purpose of this guide is to have a simple way to download files from any S3 Bucket. We're going to be downloading using [Django](http://djangoproject.com) but the majority of these methods can be used for any python project.
 
 This guide uses Amazon Web Services (AWS) [Boto Library](https://github.com/boto/boto). Boto can be used side by side with Boto 3 according to their [docs](https://github.com/boto/boto#boto-3).
