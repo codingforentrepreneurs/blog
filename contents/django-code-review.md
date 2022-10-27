@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-code-review/
 
 ---
 
+
 We want to help solve problems that you're having on your code. So we're trying out something new: Django Code Review. 
 
 Here's how you can get your code reviewed (please note we pick at random):
