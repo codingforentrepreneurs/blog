@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-and-chartjs/
 
 ---
 
+
 Learn how to integrate Charts.js with Django.
 
 We show you how to integrate:
