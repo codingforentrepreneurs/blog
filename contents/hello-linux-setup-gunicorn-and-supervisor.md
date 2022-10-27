@@ -7,15 +7,15 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-setup-gunicorn-and-
 
 ---
 
-<div class='alert alert-success'>This is the fourth post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
+_This is the fourth post of a many part series. [This post(https://www.codingforentrepreneurs.com/blog/hello-linux/) is the starter post for the whole series._
 
-Guincorn is our production wsgi server for running Django in a, you know, production environment.
+Guincorn is our production WSGI server for running Django or Python web apps in a production environment.
 
-Supervisor is a process manager to ensure gunicorn (among other things) starts, restarts, and runs when we need it to.
+Supervisor is a process manager to ensure Gunicorn (among other things) starts, restarts, and runs when we need it to.
 
 *********
-**Requirments**
+**Requirements**
 
 Be sure to complete
 - [Git Push Local Code to Live Linux Server](https://www.codingforentrepreneurs.com/blog/git-push-local-code-to-live-linux-server)
