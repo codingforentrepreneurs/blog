@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/random-string-generator-in-pyth
 
 ---
 
+
 Sometimes you need a random string for your projects. Here's an easy way to make one in Python.
 
 ```
