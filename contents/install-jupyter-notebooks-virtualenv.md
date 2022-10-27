@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-jupyter-notebooks-virtu
 
 ---
 
+
 Let's install Jupyter for a different type of experience coding with Python. 
 
 Jupyter is an __interactive notebook__ which means you can run blocks of code much like you were working in the `Python shell` except on a whole new level. A Jupyter Notebook (aka iPython Notebook `.ipnb`) can be easily shared with others and has become a popular staple of Data Scientists everywhere.
