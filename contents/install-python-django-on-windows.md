@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-python-django-on-window
 
 ---
 
+
 ### Install Python 3.8, Virtual Environments, Django 3+ on Windows using pipenv, pip (Python Package Installer) and Windows Powershell
 
 
