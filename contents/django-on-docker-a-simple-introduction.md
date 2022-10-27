@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-on-docker-a-simple-intro
 
 ---
 
+
 This is a simple tutorial but it isn't exactly for beginners. It's for people with some programming experience. 
 
 But it's still very basic.
