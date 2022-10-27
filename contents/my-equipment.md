@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/my-equipment/
 
 ---
 
+
 ### Computer
 
 Laptop: [http://amzn.to/2c965EL](http://amzn.to/2c965EL)
