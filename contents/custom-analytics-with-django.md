@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/custom-analytics-with-django/
 
 ---
 
+
 Analytics can make our service better for our users. **Custom analytics** give us control over the data while providing many of the same key insights. 
 
 I love custom analytics because it can be so simple as you'll see below. 
