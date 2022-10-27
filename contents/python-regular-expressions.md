@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/python-regular-expressions/
 
 ---
 
+
 Regular expressions, aka `regex`, is incredibly common to help us parse data. Before we discuss how, let's consider a practical example by using US Phone numbers. The following are *all* valid written phone number formats:
 
 - +1-555-555-3121
