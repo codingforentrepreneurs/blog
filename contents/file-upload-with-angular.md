@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/file-upload-with-angular/
 
 ---
 
+
 File uploads in Angular is simple and we’ll show you how below.
 
 Below assumes you have authentication handled. In our case, we used a [JWT Token HttpInterceptor](https://www.codingforentrepreneurs.com/blog/jwt-token-interceptor-for-http-angular/) to ensure our requests had the needed auth header baked in.
