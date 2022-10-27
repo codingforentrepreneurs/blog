@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/hats-off-to-you/
 
 ---
 
+
 CFE Community!
 
 Hats off to you for all your hard work and dedication. We love hearing from our students' experience and the last few weeks have been amazing. You guys are really building some awesome stuff and I'm honored to be apart of it all.
