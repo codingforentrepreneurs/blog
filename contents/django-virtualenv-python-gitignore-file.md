@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/django-virtualenv-python-gitign
 
 ---
 
+
 We use `.gitignore` files often. Here's an example you might consider using in your projects:
 
 ```
