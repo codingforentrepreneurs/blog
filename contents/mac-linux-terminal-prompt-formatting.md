@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/mac-linux-terminal-prompt-forma
 
 ---
 
+
 When you open up `Terminal` for the first time, you'll probably want to format it to suit your needs. This post shows you some formatting tips.
 
 > Since `Terminal` is the command line utility for **Mac** and **Linux**, this guide is just for **Mac** and **Linux** users. 
