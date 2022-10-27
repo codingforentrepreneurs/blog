@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/opencv-python-web-camera-quick-
 
 ---
 
+
 This post assumes you have either a USB webcam, a built-in webcam, or even a Pi Camera (if you're using OpenCV on Raspberry Pi) .
 
 This is meant to show a quick way to test your camera is working as it should. 
