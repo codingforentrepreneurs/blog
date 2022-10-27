@@ -7,14 +7,14 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-virtual-environment
 
 ---
 
-<div class='alert alert-success'>This is the second part of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
+> This is the second part of a many part series. [This post](https://www.codingforentrepreneurs.com/blog/hello-linux/) is the starter post for the whole series.
 
 We use a virtual environment to ensure our project's dependencies will remain consistent from local to production and back. 
 
 
 *********
-**Basic Requirments**
+**Basic Requirements**
 
 **Completion of [Git Setup](https://www.codingforentrepreneurs.com/blog/git-push-local-code-to-live-linux-server)**
 - In the [git setup post](https://www.codingforentrepreneurs.com/blog/git-push-local-code-to-live-linux-server), we create a working directory on our production server. So yeah, definitely do that.
