@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/ajaxify-django-forms/
 
 ---
 
+
 AJAX, short for asynchronous JavaScript and XML, is a technology that enables asynchronous web applications. Basically, it makes your web app run without the need to reload the page every time an action happens.
 
 Think about the Facebook Like button, you click the button and it shows that you've liked the item. The page doesn't reload but the data is saved. That's the key. 
