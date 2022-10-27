@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/templatedoesnotexist-error/
 
 ---
 
+
 I see this error come up a lot so here's a few quick tips to ensure you have your template setup correctly
 
 1.  Save the template file in the right directory (& check the spelling)
