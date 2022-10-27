@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/install-redis-mac-and-linux/
 
 ---
 
+
 Redis is a very popular data store used across all kinds of web apps it's supported natively by Mac and Linux operating systems. Heck, you can even use Docker to run Redis.
 
 The purpose of this guide is to setup Redis so we can use in our Python applications including Django, Flask, Fastapi, Celery, and pure python apps.
