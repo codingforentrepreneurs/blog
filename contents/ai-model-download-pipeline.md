@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/ai-model-download-pipeline/
 
 ---
 
+
 In [Build a Spam Classifier](https://www.codingforentrepreneurs.com/blog/build-a-spam-classifier-with-keras), we create a deep learning model and upload it to an object storage provider (AWS S3, Linode Object Storage, DigitalOcean Spaces, etc). Each one of these providers uses the python package `boto3`.
 
 Below is a pipeline for downloading the model and it is reusable. In fact, it is made as a reusable pipeline to download nearly *anything* from an object storage that supports `boto3`.
