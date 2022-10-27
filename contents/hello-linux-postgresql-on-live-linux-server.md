@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-postgresql-on-live-
 
 ---
 
+
 <div class='alert alert-success'>This is the third post of a many part series. <a href='https://www.codingforentrepreneurs.com/blog/hello-linux/'>This post</a> is the starter post for the whole series.</div>
 
 
