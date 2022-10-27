@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/save-a-auto-generated-pdf-file-
 
 ---
 
+
 To save a auto-generated PDF file to your model, like what we do with [render_to_pdf](https://www.codingforentrepreneurs.com/blog/html-template-to-pdf-in-django/), you can use the below code snippet. Be sure to use `Python 3.5+` for this one.
 
 ```
