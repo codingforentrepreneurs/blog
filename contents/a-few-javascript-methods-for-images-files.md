@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/a-few-javascript-methods-for-im
 
 ---
 
+
 The goal of this page is to provide some long-term useful functions that you might need to use in your app. We're targeting [React]() but it's all still 100% JavaScript with the ES6 syntax. Many of these functions were adapted/upgraded from StackOverflow.com responses.
 
 
