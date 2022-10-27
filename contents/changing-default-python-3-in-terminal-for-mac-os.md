@@ -7,6 +7,7 @@ url: https://www.codingforentrepreneurs.com/blog/changing-default-python-3-in-te
 
 ---
 
+
 Sometimes Python gets upgraded before you're ready. For example, I just used homebrew to upgrade Python. It installed version 3.7 and *not* 3.6.6 as I intended. This meant that typing `$ python3 -V` returned `3.7.0`. In the long run, this is great. But when it comes to creating a virtual environment -- slightly frustrating.
 
 Let's fix that so we can change `$ python3` to use the version we want at any time.
