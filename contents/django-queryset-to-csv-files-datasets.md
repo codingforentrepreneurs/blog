@@ -134,6 +134,7 @@ print(dataset)
 ```
 
 #### QuerySet to Dataframe in Pandas
+
 ```python
 
 import pandas as pd
@@ -160,7 +161,8 @@ def convert_to_dataframe(qs, fields=None, index=None):
 ```
 
 Now we can test our newly created method
-``` python    
+
+```python    
 qs = ObjectViewed.objects.all()[:2]
 df = convert_to_dataframe(qs, fields=['user__username', 'user__id', 'content_type', 'timestamp','object_id', 'id'])
 
