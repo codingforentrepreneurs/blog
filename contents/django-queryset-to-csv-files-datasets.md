@@ -222,7 +222,6 @@ qs_to_local_csv(qs, fields=['user__username', 'timestamp', 'object_viewed', 'id'
 
 ```
 
-
 ### 5. Force-download CSV file in a view
 
 This portion is pretty simple as it builds off of part 4. The key parts are using `StringIO` and setting the response headers.
@@ -271,8 +270,6 @@ class CSVDownloadView(LoginRequiredMixin, View):
         return response
            
 ```
-
-
 
 ### 6. Save CSV File to a FileField in a Model
 This portion assumes you used the pandas dataframe from above. You don't have to it's just easier.
