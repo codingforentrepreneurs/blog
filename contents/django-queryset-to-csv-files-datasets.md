@@ -136,7 +136,6 @@ print(dataset)
 #### QuerySet to Dataframe in Pandas
 
 ```python
-
 import pandas as pd
 
 def convert_to_dataframe(qs, fields=None, index=None):
@@ -161,7 +160,7 @@ def convert_to_dataframe(qs, fields=None, index=None):
 
 Now we can test our newly created method
 
-```python    
+```python
 qs = ObjectViewed.objects.all()[:2]
 df = convert_to_dataframe(qs, fields=['user__username', 'user__id', 'content_type', 'timestamp','object_id', 'id'])
 
@@ -172,7 +171,7 @@ id
 529        125            58 2018-02-04 05:08:01.702909+00:00     3
 ```
    
-#### A somewhat interesting note
+__A somewhat interesting note__
 Although these utilities work for this model, they *might not* work for every Django model. I'm sure there are more complex ulities out there to solve for all possible models but the point here was to think through how it might look.
 
 ### 4. Save CSV File locally
