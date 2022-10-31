@@ -69,9 +69,8 @@ In here, we're going to make utility functions (methods) that turn any given que
 
 So, take a look.
 
+`cfehome/utils.py`
 ```python
-### cfehome.utils.py or the root of your project conf
-
 def get_model_field_names(model, ignore_fields=['content_object']):
     '''
     ::param model is a Django model class
@@ -226,9 +225,8 @@ qs_to_local_csv(qs, fields=['user__username', 'timestamp', 'object_viewed', 'id'
 
 This portion is pretty simple as it builds off of part 4. The key parts are using `StringIO` and setting the response headers.
 
+`analytics/views.py`
 ```python
-#analytics.views.py
-
 import csv
 from io import StringIO
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -274,9 +272,8 @@ class CSVDownloadView(LoginRequiredMixin, View):
 ### 6. Save CSV File to a FileField in a Model
 This portion assumes you used the pandas dataframe from above. You don't have to it's just easier.
 
-
+`datasets/models.py`
 ```python
-#datasets.models.py
 from io import StringIO
 from django.core.files import File
 from django.db import models
