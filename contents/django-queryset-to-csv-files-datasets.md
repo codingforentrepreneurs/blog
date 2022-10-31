@@ -227,7 +227,7 @@ qs_to_local_csv(qs, fields=['user__username', 'timestamp', 'object_viewed', 'id'
 This portion is pretty simple as it builds off of part 4. The key parts are using `StringIO` and setting the response headers.
 
 ```python
-# analytics.views.py
+#analytics.views.py
 
 import csv
 from io import StringIO
@@ -276,7 +276,7 @@ This portion assumes you used the pandas dataframe from above. You don't have to
 
 
 ```python
-# datasets.models.py
+#datasets.models.py
 from io import StringIO
 from django.core.files import File
 from django.db import models
