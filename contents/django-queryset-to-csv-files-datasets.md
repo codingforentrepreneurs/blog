@@ -123,6 +123,7 @@ def qs_to_dataset(qs, fields=None):
     return list(qs.values(*lookup_fields))
 ```
 
+
 Now, we can use the method `qs_to_dataset` to simply and quickly get us the data we need.
 
 ```python
@@ -157,7 +158,6 @@ def convert_to_dataframe(qs, fields=None, index=None):
     values = qs_to_dataset(qs, fields=fields)
     df = pd.DataFrame.from_records(values, columns=lookup_fields, index=index_col)
     return df
-        
 ```
 
 Now we can test our newly created method
