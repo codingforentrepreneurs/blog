@@ -141,14 +141,14 @@ print(dataset)
 import pandas as pd
 
 def convert_to_dataframe(qs, fields=None, index=None):
-    '''
+    """
     ::param qs is an QuerySet from Django
     ::fields is a list of field names from the Model of the QuerySet
     ::index is the preferred index column we want our dataframe to be set to
     
     Using the methods from above, we can easily build a dataframe
     from this data.
-    '''
+    """
     lookup_fields = get_lookup_fields(qs.model, fields=fields)
     index_col = None
     if index in lookup_fields:
