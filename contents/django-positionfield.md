@@ -13,7 +13,8 @@ Sometimes you need ordering in relation to a foreign key, this field snippet is 
 Original snippet [here](https://kirr.co/rhhof6).
 
 ### Usage
-```
+
+```python
 class Playlist(models.Model):
     title         = models.CharField(max_length=120)
     updated       = models.DateTimeField(auto_now=True)
