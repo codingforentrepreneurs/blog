@@ -210,6 +210,4 @@ More on this from the Heroku docs [here](https://devcenter.heroku.com/articles/a
 
 -------
 ## Video
-This is our old video on how to do most of the above. For a new one, check out the [MVP Landing](/projects/mvp-landing) project's heroku deployment tutorial.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4DggiEkbCTg" frameborder="0" allowfullscreen></iframe>
+Watch how this is done on [youtube](https://www.youtube.com/embed/4DggiEkbCTg). This video is the older method on how to do for a newer one, consider the [MVP Landing](https://cfe.sh/courses/mvp-landing) project's Heroku deployment tutorial.
