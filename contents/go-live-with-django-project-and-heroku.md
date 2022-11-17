@@ -12,7 +12,7 @@ Make your Django project live using [Heroku.com](https://www.heroku.com)'s web h
 
 Interested in Docker containers for Django on Heroku? Check it out [here](https://www.codingforentrepreneurs.com/blog/deploy-django-on-docker-to-heroku-opencv).
 
-_Updated on July 29th, 2020. Original posted in 2017._
+_Updated on July 29th, 2020. Originally posted in 2017._
 
 -------
 
@@ -96,7 +96,8 @@ $ heroku config:set EMAIL_HOST_PASSWORD = 'youremailpassword'
 ```
 
 ### 10. Update your Django Production Settings `DJANGO_SETTINGS_MODULE` to include:
-```
+
+```python
 DEBUG = False
 ALLOWED_HOSTS =  ['project-name.herokuapp.com', '.yourdomain.com']
 SECRET_KEY = os.environ.get('SECRET_KEY', 'SOME+RANDOM+KEY(z9+3vnm(jb0u@&w68t#5_e8s9-lbfhv-')  
