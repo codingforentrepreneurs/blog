@@ -18,7 +18,7 @@ To do this, we'll have Django running via gunicorn as a daemon process (i.e. bac
 
 The contents in this post are _not production-ready_ but can be modified to be production-ready by at least using environment variables, an actual production database, turning off debug mode in Django, leveraging a static files server, and likely other items that you can learn about in my course [Django Deployment Pipeline](https://www.codingforentrepreneurs.com/courses/django-deployment-pipeline/).
 
-__Sample project and code are all on [github](https://github.com/codingforentrepreneurs/django-gunicorn-nginx-docker-containers)__
+__Sample project and code are all on [github](https://github.com/codingforentrepreneurs/django-gunicorn-nginx-docker-containers)__.
 
 ## Create a local virtual environment
 
