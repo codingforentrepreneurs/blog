@@ -8,7 +8,7 @@ url: https://www.codingforentrepreneurs.com/blog/haperdb-expressjs-ubunutu-linod
 ---
 
 
-# The Completed Blog Post is Coming Soon
+<div class='bg-warning px-2 text-black'>The Completed Blog Post is Coming Soon</div>
 
 In this post, we'll be setting up a Node.js application running Express.js and HarperDB on Ubuntu on Linode. You can use any Ubuntu LTS from version 18.04 and, but we'll be using Ubuntu 20.04 LTS for this guide. 
 
