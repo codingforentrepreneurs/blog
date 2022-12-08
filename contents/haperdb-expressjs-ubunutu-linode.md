@@ -118,7 +118,7 @@ Be sure to run `echo $HDB_ADMIN_PASSWORD` and store this password somewhere safe
 
 ### Start HarperDB
 ```bash
-harperdb install --TC_AGREEMENT yes --HDB_ROOT /home/ubuntu/hdb --SERVER_PORT $HARPER_SERVER_PORT --HDB_ADMIN_USERNAME $HDB_ADMIN_USERNAME --HDB_ADMIN_PASSWORD '$HDB_ADMIN_PASSWORD' --HTTPS_ON true --CUSTOM_FUNCTIONS true --CUSTOM_FUNCTIONS_PORT $HARPER_CUSTOM_FUNCTIONS_PORT
+harperdb install --TC_AGREEMENT yes --HDB_ROOT /home/ubuntu/hdb --SERVER_PORT $HARPER_SERVER_PORT --HDB_ADMIN_USERNAME "$HDB_ADMIN_USERNAME" --HDB_ADMIN_PASSWORD "$HDB_ADMIN_PASSWORD" --HTTPS_ON true --CUSTOM_FUNCTIONS true --CUSTOM_FUNCTIONS_PORT $HARPER_CUSTOM_FUNCTIONS_PORT
 ```
 You should see something like this:
 ```bash
@@ -159,7 +159,7 @@ Update & Restart
 ```bash
 exit # to return to root user
 
-apt-get update && apt-get upgrade -y # takes a few minutes
+sudo apt-get update && sudo apt-get upgrade -y # takes a few minutes
 reboot now
 ```
 
