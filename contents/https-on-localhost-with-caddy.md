@@ -36,15 +36,11 @@ Pretty neat right? Let's get started.
 
 Using [homebrew](https://brew.sh), run:
 
-Install Java and Nss
-```
-brew install java nss
-```
-
 Install caddy
 ```
 brew install caddy
 ```
+- In some tests, Java was required in order for caddy to work with Homebrew (`brew install java nss`)
 
 ### Install Caddy on Windows
 
@@ -52,8 +48,6 @@ brew install caddy
 2. Download the correct platform
 3. Move the downloaded binary to a user folder
 4. Run `.\path\to\my\binary\caddy_download version`
-
-> You may need to install Java in order for this to run correctly.
 
 
 ### Install Caddy on Linux
