@@ -229,23 +229,27 @@ These correspond to the values set during the HarperDB installation.
 
 ### Install Dependencies 
 
-```bash 
-npm install express dotenv node-fetch
-```
+Now let's get our project setup with the following:
 
 - *Express.js* is a minimal web framework for Node.js.
 - *dotenv* loads our environment variables from a `.env` file. 
 - *node-fetch*: allow us to make HTTP requests to our HarperDB instance. This is the Node.js version of `fetch()` from the browser. Works great with `async/await` and is nearly the same as you might expect.
 
+
+Install with:
+
+```bash 
+npm install express dotenv node-fetch
+```
+
 Then dev-only dependencies:
+- *nodemon* automatically reloads our Express.js server when we make changes to the code and thus suitable for development.
+
+Install with:
 
 ```bash
 npm install nodemon --save-dev
 ```
-- *nodemon* automatically reloads our Express.js server when we make changes to the code and thus suitable for development.
-
-
-## Base App Configuration
 
 ### Root Server
 In `app/index.js` add the following:
@@ -261,7 +265,9 @@ app.listen(PORT, async () => {
   console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
 });
 ```
-Now let's update our `package.json` to include the following script:
+Later in this guide, we'll replace the entire `app/index.js`. Right now we just want to ensure it's running.
+
+Add a shortcut command to your `package.json` to include the following script:
 
 ```json
 "scripts": {
