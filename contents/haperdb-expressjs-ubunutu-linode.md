@@ -2,13 +2,11 @@
 title: Getting Started with HarperDB &amp; Express.js on Ubuntu x Linode
 slug: haperdb-expressjs-ubunutu-linode
 
-publish_timestamp: Dec. 6, 2022
+publish_timestamp: Dec. 19, 2022
 url: https://www.codingforentrepreneurs.com/blog/haperdb-expressjs-ubunutu-linode/
 
 ---
 
-
-<div class='alert-warning p-5 text-center font-bold text-lg text-black'>Coming Soon!</div>
 
 In this post, we'll be setting up a Node.js application running Express.js and HarperDB on Ubuntu on Linode. You can use any Ubuntu LTS from version 18.04 and, but we'll be using Ubuntu 20.04 LTS for this guide. 
 
@@ -178,4 +176,380 @@ reboot now
   
 
 ## Setup Express.js
-Coming soon
+
+### Create Project Folder
+
+```bash
+mkdir ~/express-harperdb
+cd ~/express-harperdb
+```
+
+### Create Node.js Package
+
+```bash
+npm init
+```
+Accept all the defaults resulting in:
+
+```bash
+cat package.json
+```
+
+Returning something such as:
+```json
+{
+  "name": "nodejs-harperdb",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+}
+```
+
+### Update Environment Variables
+In the root of our project, create a `.env` file and add the following:
+
+```bash
+HARPER_SERVER_PORT=9925
+HARPER_CUSTOM_FUNCTIONS_PORT=9926
+HARPERDB_USER=HDB_ADMIN
+HARPERDB_PW=pil62BL-I4jgdRyojJrHJ3c6vd3IEedvBpTWqGR0Aqs
+HARPERDB_URL=https://50.116.28.246:9925
+```
+These correspond to the values set during the HarperDB installation.
+
+- `HARPERDB_USER` is the `HDB_ADMIN_USERNAME` and configured to `HBD_ADMIN`
+
+- `HARPERDB_PW` is the `HDB_ADMIN_PASSWORD` and configured to the result of `python -c 'import secrets; print(secrets.token_urlsafe(32))'`
+- `HARPERDB_URL` combines the `HARPER_SERVER_PORT` and the IP Address of your Linode Instance from the previous step.
+
+
+### Install Dependencies 
+
+```bash 
+npm install express dotenv node-fetch
+```
+
+- *Express.js* is a minimal web framework for Node.js.
+- *dotenv* loads our environment variables from a `.env` file. 
+- *node-fetch*: allow us to make HTTP requests to our HarperDB instance. This is the Node.js version of `fetch()` from the browser. Works great with `async/await` and is nearly the same as you might expect.
+
+Then dev-only dependencies:
+
+```bash
+npm install nodemon --save-dev
+```
+- *nodemon* automatically reloads our Express.js server when we make changes to the code and thus suitable for development.
+
+
+## Base App Configuration
+
+### Root Server
+In `app/index.js` add the following:
+
+```javascript
+import express from 'express';
+const app = express();
+const PORT = 8000;
+
+app.get('/', (req, res) => res.json('Express Server'));
+
+app.listen(PORT, async () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
+});
+```
+Now let's update our `package.json` to include the following script:
+
+```json
+"scripts": {
+  "dev": "nodemon app/index.js",
+  ...
+},
+```
+Now we can simply run `npm run dev` (or `yarn dev` if you have yarn installed) to start our server.
+
+
+### Load Environment Variables
+
+In `app/configEnv.js` add the following:
+
+```javascript
+import path from 'path';
+import dotenv from 'dotenv';
+
+// Load the current file's directory
+const baseDir = path.basename(import.meta.url);
+
+// Define the absolute path to the .env file in the root project directory
+const envFilePath = path.resolve(path.dirname(baseDir), '.env');
+
+// Load the Environment Variables from the .env file in the root project directory
+dotenv.config({ path: envFilePath})
+```
+
+Update `app/index.js` to load the environment variables at the top of the file:
+
+```javascript
+import './configEnv.js';
+```
+
+
+### Create a Database Client
+Now we're going to create a reusable database client so we can easily make requests to our HarperDB instance through our Express.js server and our Environment Variable configuration for authentication.
+
+In `app/client.js` add the following:
+```javascript
+import fetch, {Headers} from 'node-fetch';
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+// Define Connection Details
+const DB_URL = process.env.HARPERDB_URL;
+const DB_PASS = process.env.HARPERDB_PW;
+const DB_USER = process.env.HARPERDB_USER;
+
+const getAuthToken = () => {
+    // Get the HarperDB username and password from the environment variables
+    if (!DB_URL || !DB_PASS || !DB_USER) {
+        console.log('Error: .env variables are undefined or not setup correctly.');
+        throw 'Internal server error';
+      }
+    // Convert the username and password to base64
+    const auth = Buffer.from(`${DB_USER}:${DB_PASS}`).toString('base64')
+    return auth;
+}
+
+const dbClient = async (data, method) => {
+  // A database client method that takes an object of data and a method (GET, POST, PUT, DELETE) then sends it to our
+  // HarperDB instance and returns the result.
+  const authString = getAuthToken()
+  const myHeaders = new Headers();
+  myHeaders.append('Content-Type', 'application/json');
+  myHeaders.append('Authorization', `Basic ${authString}`);
+  const jsonBodyContent = JSON.stringify(data);
+  const requestOptions = {
+    method: method ? method : 'POST',
+    headers: myHeaders,
+    body: jsonBodyContent,
+    redirect: 'follow',
+    rejectUnauthorized: false,
+  };
+
+  const response = await fetch(DB_URL, requestOptions);
+  const result = await response.json();
+  return result;
+};
+
+export default dbClient
+```
+
+### Create a HarperDB Crud Model Class
+Models are a great way to organize our database interactions. In this section, we'll create a simple example of what a model might look like as an entry point into leveraging HarperDB's very flexible CRUD functionality.
+
+First, let's create a `crud.js` file in the `app` directory with a few defaults:
+
+```javascript
+// import the database client
+import client from './client.js';
+
+// This is a workaround for the self-signed certificate HarperDB uses
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
+
+```
+
+Still in `app/crud.js`, let's create our schema (`APP_SCHEMA`) for our HarperDB tables. The schema is essentially the namespace where our tables will live.
+
+```javascript
+// Define the schema and user we'll be using for this app
+const APP_SCHEMA = process.env.APP_SCHEMA || 'dev';
+
+export const configureAppSchema = async () => {
+    const schemaData = {
+        "operation": "create_schema",
+        "schema": APP_SCHEMA
+    }
+    return await client(schemaData, "POST");
+}
+```
+
+You should only have to add the schema once in HarperDB but we'll ensure the schema exists every time we start our Express.js server.
+
+Now let's create our Database model class to handle various CRUD operations (`CREATE`, `RETRIEVE`, `UPDATE`, `DELETE`). In `app/crud.js` add the following:
+```javascript
+
+export class DogModel {
+  constructor() {
+    this.db = client // convenience for connecting to the database
+    this.table = "dog" // our table name
+    this.schema = APP_SCHEMA // same schema as before
+  } 
+
+  configure = async () => {
+    // Configure the table
+    // Should only need to be run 1 time just like the schema
+    const tableData = {
+        "operation": "create_table",
+        "schema": APP_SCHEMA,
+        "table": this.table,
+        "hash_attribute": "id"
+    }
+    return await this.db(tableData, "POST");
+  }
+
+  entryAdd = async (records) => {
+    // This is a nosql operation so we can add multiple records into your database at once will add/insert the data into the database _or_ it will update the current data that machines the hash_attribute (id in this case) as defined in the table configuration above
+      const data = {
+          "operation": "upsert",
+          "schema": this.schema,
+          "table": this.table,
+          "records": records 
+      }
+        return await this.db(data, "POST");
+    }
+
+    entryCreateAttribute = async (attribute) => {
+      // If you need to add additional fields/attributes to your data, this is what you'll use.
+        const data = {
+            "operation": "create_attribute",
+            "schema": this.schema,
+            "table": this.table,
+            "attribute": attribute
+        }
+        return await this.db(data, "POST");
+    }
+
+    
+
+    entryDetail = async (id) => {
+      // Using a SQL operation, retrieve a single record in our database by it's id
+        const sqlLookup = `SELECT * FROM ${this.schema}.${this.table} WHERE id = ${id}`
+        const data = {
+            "operation": "sql",
+            "sql": sqlLookup
+        }
+        return await this.db(data, "POST");
+    }
+    entryList = async () => {
+      // Using a SQL operation, list all records in our database
+        const sqlLookup = `SELECT * FROM ${this.schema}.${this.table}`
+        const data = {
+            "operation": "sql",
+            "sql": sqlLookup
+        }
+        return await this.db(data, "POST");
+    }
+    entryDelete = async (id) => {
+      // Using a SQL operation, delete a record from our database
+        // const sqlLookup = `DELETE FROM ${this.schema}.${this.table} WHERE id = ${id}`
+        const data = {
+             "operation": "delete",
+              "table": "dog",
+              "schema": "dev",
+              "hash_values": [
+                id
+              ]
+        }
+        return await this.db(data, "POST");
+    }
+}
+
+export default DogModel
+```
+
+
+### Express JS Server
+
+```javaScript
+// Load in environment variables first
+import './configEnv.js'
+
+// import the DogModel and schema Config
+import DogModel, { configureAppSchema } from './crud.js';
+
+// Import express.js
+import express from 'express';
+
+// Create an instance of express
+const app = express();
+
+// configure the default port to listen on
+const PORT = process.env.PORT || 8000;
+
+// Handled the index route
+app.get('/', (req, res) => res.json('Express Server'));
+
+
+// Add records
+app.get("/add", async (req, res) => {
+    const records = [
+        {
+            "id": "1",
+            "name": "Fido",
+            "color": "brown",
+        },
+        {
+            "id": "2",
+            "name": "Spot",
+            "favoriteFood": "peanut butter"
+        },
+         {
+            "id": "3",
+            "name": "Rover",
+         },
+        {
+            "id": "4",
+            "name": "Spike",
+            "color": "black",
+            "favoriteFood": "cheese"
+        }
+    ]
+    const response = await new DogModel().entryAdd(records)
+    return res.json(response);
+})
+
+// adding a new attribute
+app.get("/new-attribute", async (req, res) => {
+    const attribute = req.query.attribute ? `${req.query.attribute}` : "favoriteFood" 
+    const response = await new DogModel().entryCreateAttribute(attribute)
+    return res.json(response);
+})
+
+
+// list lookup
+app.get("/list", async (req, res) => {
+    const response = await new DogModel().entryList()
+    return res.json(response);
+})
+
+// detail lookup
+app.get("/detail/:id", async (req, res) => {
+    const response = await new DogModel().entryDetail(req.params.id)
+    return res.json(response);
+})
+
+
+const configure = async () => {
+    // run when server starts
+    const appSchemaResponse =  await configureAppSchema()
+    const dogModelResponse = await new DogModel().configure()
+    return {schema: appSchemaResponse, model: dogModelResponse}
+}
+
+
+
+app.listen(PORT, async () => {
+  console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
+  const configuration = await configure()
+  console.log(configuration)
+});
+```
+
+Now that we have our Express.js server setup, let's start it up
+```bash
+npm run start
+```
+
+How cool is that? HarperDB is simple to setup, your database is self managed on a server _and_ you can run SQL and NoSQL operations for all of your data.
