@@ -176,6 +176,7 @@ reboot now
   
 
 ## Setup Express.js
+Now that we have our database setup, let's integrate it with HarperDB and the minimal Node.js framework Express.js.
 
 ### Create Project Folder
 
@@ -212,13 +213,14 @@ Returning something such as:
 ### Update Environment Variables
 In the root of our project, create a `.env` file and add the following:
 
-```bash
+```
 HARPER_SERVER_PORT=9925
 HARPER_CUSTOM_FUNCTIONS_PORT=9926
 HARPERDB_USER=HDB_ADMIN
 HARPERDB_PW=pil62BL-I4jgdRyojJrHJ3c6vd3IEedvBpTWqGR0Aqs
 HARPERDB_URL=https://50.116.28.246:9925
 ```
+
 These correspond to the values set during the HarperDB installation.
 
 - `HARPERDB_USER` is the `HDB_ADMIN_USERNAME` and configured to `HBD_ADMIN`
@@ -238,7 +240,7 @@ Now let's get our project setup with the following:
 
 Install with:
 
-```bash 
+```
 npm install express dotenv node-fetch
 ```
 
