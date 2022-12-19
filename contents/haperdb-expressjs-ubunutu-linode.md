@@ -240,7 +240,7 @@ Now let's get our project setup with the following:
 
 Install with:
 
-```
+```bash
 npm install express dotenv node-fetch
 ```
 
@@ -467,8 +467,11 @@ export class DogModel {
 export default DogModel
 ```
 
+Now that we have the various database operations we might want to execute, let's update our Express.js Server to use the model.
 
-### Express JS Server
+### HarperDB and Express.JS Endpoints
+
+Updating `app/index.js` let's add the following:
 
 ```javaScript
 // Load in environment variables first
