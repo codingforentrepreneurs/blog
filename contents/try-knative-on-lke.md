@@ -27,7 +27,7 @@ Here's what we're going to cover in this article and [the course](https://www.co
 - Implement Knative service environment variables (both ConfigMap and Secrets)
 
 
-This repository is the reference code for our in-depth course [Try Knative](https://www.codingforentrepreneurs.com/courses/try-knative/) along with the related article on [our blog](https://www.codingforentrepreneurs.com/blog/try-knative-on-lke).
+The [Try Knative repository](https://github.com/codingforentrepreneurs/try-knative) is the reference code for our in-depth course [Try Knative](https://www.codingforentrepreneurs.com/courses/try-knative/) along with this article.
 
 There are a few requirements before you get started.
 
