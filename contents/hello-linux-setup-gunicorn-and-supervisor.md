@@ -8,7 +8,7 @@ url: https://www.codingforentrepreneurs.com/blog/hello-linux-setup-gunicorn-and-
 ---
 
 
-_This is the fourth post of a many part series. [This post(https://www.codingforentrepreneurs.com/blog/hello-linux/) is the starter post for the whole series._
+_This is the fourth post of a many part series. [This post](https://www.codingforentrepreneurs.com/blog/hello-linux/) is the starter post for the whole series._
 
 Guincorn is our production WSGI server for running Django or Python web apps in a production environment.
 
