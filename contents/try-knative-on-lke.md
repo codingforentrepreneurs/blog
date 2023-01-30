@@ -73,7 +73,7 @@ Now run
 ```bash
 terraform init
 ```
-Be sure that if you're using _git_ that you have at least [this .gitignore](./blob/main/.gitignore) file in your repo.
+Be sure that if you're using _git_ that you have at least [this .gitignore](https://github.com/codingforentrepreneurs/try-knative/blob/main/.gitignore) file in your repo.
 
 
 ## 3. Add Autoscaling to your Kubernetes Cluster
@@ -150,7 +150,7 @@ You can install them on these links _or_ our bash script below:
 - Install [Knative + Istio Installation Docs](https://knative.dev/docs/install/yaml-install/serving/install-serving-with-yaml/#install-a-networking-layer)
 
 
-The macOS/Linux bash script is avaiable in this repo at: [installers/install-knative-istio.sh](./blob/main/installers/install-knative-istio.sh). Let's run it with now:
+The macOS/Linux bash script is avaiable in this repo at: [installers/install-knative-istio.sh](https://github.com/codingforentrepreneurs/try-knative/blob/main/installers/install-knative-istio.sh). Let's run it with now:
 
 ```bash
 chmod +x ./installers/install-knative-istio.sh
