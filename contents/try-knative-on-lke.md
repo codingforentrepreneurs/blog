@@ -172,4 +172,122 @@ echo "Your IP Address is: $KNATIVE_INGRESS_IP"
 echo "Add a cname record for your domain using the above IP address."
 ```
 
-## 8. Coming soon.
+## 8. Deploy a Knative Service
+
+At this point, we should have Knative Installed on our Kubernetes cluster. The istio configuration will come later but for now, let's create a Knative Service.
+
+Create a folder called `k8s` and `cfe-nginx` with the following:
+```bash
+mkdir -p k8s/cfe-nginx
+```
+
+In `k8s/cfe-nginx` create a file called `service.yaml` with the following:
+
+```yaml
+---
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: cfe-nginx
+spec:
+  template:
+    spec:
+      containers:
+        - name: cfe-nginx-container
+          image: codingforentrepreneurs/cfe-nginx:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          env:
+            - name: RELEASE_VERSION
+              value: "V2"
+```
+This Knative service will be responsible for spinning up deployments (and indirectly pods) to run the `codingforentrepreneurs/cfe-nginx:latest` container image. The `imagePullPolicy` is set to `Always` so that if we make nearly *any* changes to `service.yaml` Knative will attempt to download a new version of our container image.
+
+Now run:
+
+```
+kubectl apply -f k8s/cfe-nginx/service.yaml
+```
+The internal route for this service will be `cfe-nginx.apps.svc.cluster.local` that we will use shortly to test this service. You can also verify this url with:
+
+```bash
+kubectl get routes -n default
+```
+The service route *will change* later in this post. To get the cluster-based (internal) service url, you can always run:
+
+```bash
+kubectl get ksvc cfe-nginx  -o jsonpath='{.status.address.url}'
+```
+These commands are also referenced (including shortcuts) on [this document](https://github.com/codingforentrepreneurs/try-knative/blob/main/command-notes.md)
+
+
+
+
+
+## 9. Apply a Kubernetes Deployment 
+
+In order to test a domain-less Knative service, we need to create a Kubernetes deployment. With this Kubernetes deployment we can do a internal `curl` request to our Knative service thus verifying that it's working correctly (at least inside Kubernetes).
+
+In `k8s/cfe-nginx` create a file called `deployment.yaml` with the following:
+```yaml
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: example-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: example-deployment
+  template:
+    metadata:
+      labels:
+        app: example-deployment
+    spec:
+      containers:
+        - name: example-container
+          image: codingforentrepreneurs/cfe-nginx:latest
+          imagePullPolicy: Always
+          ports:
+            - name: example-port
+              containerPort: 80
+```
+
+
+Now we can run:
+
+```
+kubectl apply -f k8s/cfe-nginx/deployment.yaml
+```
+
+After some time, you can execute "curl" from within this deployment with:
+
+```
+kubectl exec -n default -it deployments/example-deployment -- bash -c "curl http://cfe-nginx.apps.svc.cluster.local"
+```
+Notice a few things:
+
+- `-n default` assumes that we have not changed the namespace for any of our resources. If you have, you can change this to the appropriate namespace.
+- `deployments/example-deployment` is the name of the deployment we just created.
+- `-- bash -c "curl http://cfe-nginx.apps.svc.cluster.local"` is the command we want to run inside the container.
+
+After we run this command we should see:
+
+```html
+<!DOCTYPE html>
+... <!-- removed to conserve space-->
+<body>
+  <div class="center">
+   <h1>Hello World</h1> 
+   <p>This page is working with NGINX</p>
+  </div>
+</body>
+</html>
+```
+
+If you do not see this result, that means your Knative service isn't working correctly. Remember, we used the container image `codingforentrepreneurs/cfe-nginx:latest`.
+
+
+# 10. Coming Soon
