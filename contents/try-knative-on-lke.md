@@ -8,10 +8,6 @@ url: https://www.codingforentrepreneurs.com/blog/try-knative-on-lke/
 ---
 
 
-<div class="alert alert-primary text-center mb-4 lg:mb-8" role="alert">
-  <span class="font-medium">Coming Soon!</span>
-</div>
-
 Knative is a Kubernetes-based platform for running serverless. Serverless means you can scale your application to 0 running instances but those instances to quickly scale up to _N_ number of instances within a few seconds. Scaling to 0 is fantastic because it allows Kubernetes and Knative to reallocate resources as needed. If you couple that with an LKE autoscaling feature (which will add compute nodes to your cluster), you can have a very robust system with not much financially invested.
 
 The investment for Knative comes in the form of the learning curve to get it running and unlocking continuous delivery/deployment. This article and the [Try Knative course](https://www.codingforentrepreneurs.com/courses/try-knative/) are here to help you get started using Knative in production using a managed Kubernetes cluster on Linode's LKE service. 
@@ -290,4 +286,188 @@ After we run this command we should see:
 If you do not see this result, that means your Knative service isn't working correctly. Remember, we used the container image `codingforentrepreneurs/cfe-nginx:latest`.
 
 
-# 10. Coming Soon
+# 10. Creating a Custom Domain
+
+If you want traffic to your service from the outside world, you'll need to implement a custom domain name such as TryKnative.com. 
+
+To do this, it requires 2 steps:
+
+- Update the Knative Serving default domain for services
+- Add an A Record with the Knative/Istio IP Address
+
+
+## Update the Knative Serving default domain for services
+
+Now we need to update the default `knative-serving` configmap for our custom domain. Before we do, let's review the default routes based on the default installation:
+
+```
+kubectl get routes -A
+```
+For your service, you should see the url:
+
+```
+http://cfe-nginx.default.svc.cluster.local
+```
+
+We want this to be our custom domain name. Let's update the configmap to have the following block:
+
+```yaml
+data:
+    tryknative.com: |
+    
+    _example: |
+    ...
+```
+The `tryknative.com` represents your custom domain name. This blog post merely uses `tryknative.com` as an example you can work off.
+
+The `_example` block is a non-functional block that gives you a lot of configuration options for your custom domain(s) within Knative Serving.
+
+To edit this configmap, we run:
+
+```bash
+KUBE_EDITOR="nano" kubectl edit configmap config-domain -n knative-serving
+```
+This will open the `nano` editor instead of the `vim` default. 
+
+As a reminder, add the following in the `data` block:
+
+```yaml
+data:
+    tryknative.com: |
+
+    _example: |
+    ...
+```
+I have found that the line break between your custom domain and `_example: |` tends to yield the best results but it's likely unnecessary.
+
+Close the editing session and save the file. (with Nano it's pressing `Ctrl + C`, `y` and `Enter`/`Return`)
+
+To verify the changes, we can run:
+
+```
+kubectl get routes -A
+```
+This should show our custom domain name now.
+
+## Add an A Record with the Knative/Istio IP Address
+
+At this point, we should have already seen this IP address a couple of times.
+
+To get it, we simply run:
+
+```bash
+kubectl --namespace istio-system get service istio-ingressgateway -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+```
+This value we'll want to update our A Records on our Domain Registrar for our custom domain. I recommend using a wildcard record so any new Knative services you create will automatically work with this IP address.
+
+For example purposes, let's say our `IP Address` from the istio-ingressgateway is: 
+
+```
+23.92.23.85
+```
+Then we can update our Domain A Records to:
+
+| Hostname    | Target      | TTL         |
+| ----------- | ----------- | ----------- |
+| *      | 23.92.23.85       | 300         |
+| www   | 23.92.23.85       | 300         |
+| *.default | 23.92.23.85 | 300         |
+
+The `*.default` record is directly correlated to the namespace the Knative service is running in. In this case, we never declared a namespace so it defaults to `default`. If you want to use a different namespace in your Knative service (such as `apps` or `demo`), you would add the `*.apps` or `*.demo` records to target the same IP address.
+
+Changing these records will update the default Knative Service Route:
+
+```
+kubectl get route cfe-nginx
+```
+
+This should now yield our custom domain name:
+
+`http://cfe-nginx.default.tryknative.com`
+
+
+The internal route for this Knative service will remain the same:
+
+```
+kubectl get ksvc cfe-nginx -o jsonpath='{.status.address.url}')
+```
+
+This should yield:
+
+`http://cfe-nginx.default.svc.cluster.local`
+
+When we need to have internal communication to this Knative service, this is the url you *should* use as it will be far more efficient than the external url.
+
+
+
+# 10. Creating a Virtual Service for a Root Custom Domain
+
+Let's be real, `cfe-nginx.default.tryknative.com` is great but not ideal for end users unless we're testing a new version of our service of course.
+
+Instead, I want:
+
+- tryknative.com
+- www.tryknative.com
+
+To point to my recently deployed Knative service. To do this, we'll use an Istio Virtual Service.
+
+
+In `k8s/virtual-service.yaml`, add the following:
+
+```yaml
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: tryknative-root
+  namespace: default
+spec:
+  gateways:
+    - knative-shared-gateway.knative-serving.svc.cluster.local
+    - knative-serving/knative-ingress-gateway
+  hosts:
+  - tryknative.com
+  - www.tryknative.com
+  http:
+    - name: http-route
+      match: 
+        - uri:
+           prefix: "/" # maps to http://cfe-nginx.apps.tryknative.com/
+           # we direct these domain hosts to a different path on our
+           # deployed service
+           # prefix: "/blog" # would map to http://cfe-nginx.apps.tryknative.com/blog
+      rewrite:
+        authority: cfe-nginx.default.tryknative.com
+      route:
+      - destination:
+          host: cfe-nginx.default.svc.cluster.local
+          port:
+            number: 80
+        weight: 100
+```
+
+What we see here is a Virtual Service that will route traffic from `tryknative.com` and `www.tryknative.com` to our Knative service. The key things you'll need to customize over time are:
+
+- `rewrite: authority: cfe-nginx.default.tryknative.com`
+- `route: destination: host: cfe-nginx.default.svc.cluster.local`
+
+At this point you should also recognize where these values are coming from but I'll reiterate it once again:
+
+- `cfe-nginx` is the name of our Knative service
+- `default` is the namespace our `cfe-nginx` Knative service.
+- `tryknative.com` is the custom domain we added to the _knative-serving_ `config-domain` _configmap_ earlier. If we had *more than one* domain in this configmap, we would need to update how our Knative Gateway routes traffic (this is beyond the scope of this blog post)
+- `svc.cluster.local` is the default Kubernetes cluster domain name that will route traffic to any given service.
+
+We need to use rewrite on the custom domain to ensure that the `Host` header is set to the custom domain name. This is important because the Knative Gateway will use this header to route traffic to the correct Knative service.
+
+We need to route the destination to the `cfe-nginx.default.svc.cluster.local` because this is the internal url for our Knative service. This is important because the Knative Gateway will use this url to route traffic to the correct Knative service.
+
+## Next steps
+
+To get a more in-depth look at how all this is done, consider enrolling in the [Try Knative](https://www.codingforentrepreneurs.com/courses/try-knative/) course. In the course, we also show you how to use secrets and configmaps for environment variables on your Knative service. We also show you how to deploy the default nginx container to really highlight how powerful Knative can be.
+
+Watch the [course demo](https://www.codingforentrepreneurs.com/courses/try-knative/lessons/demo-x7l6/) right now.
+
+The next big piece would be implementing HTTPs with [cert-manager](https://cert-manager.io/). If you are interested in seeing how, please comment below and/or [upvote the suggestion](https://www.codingforentrepreneurs.com/suggest/653/).
+
+
+Did I miss anything? Let me know in the comments below. Thank you!
