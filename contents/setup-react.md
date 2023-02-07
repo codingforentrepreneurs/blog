@@ -97,7 +97,7 @@ If `yarn` is installed, you can use:
 
 
 #### 1. Install Parcel.js
-Following the [docs](https://parceljs.org/getting_started.html) go ahead and:
+Following the [docs](https://v1.parceljs.org/) go ahead and:
 ```
 yarn global add parcel-bundler
 ```
