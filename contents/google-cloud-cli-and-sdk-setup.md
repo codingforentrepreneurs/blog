@@ -8,41 +8,51 @@ url: https://www.codingforentrepreneurs.com/blog/google-cloud-cli-and-sdk-setup/
 ---
 
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k-8qFh8EfFA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 Google Cloud has a number of awesome services that make creating your projects much more robust. Google pioneered and open-sourced Kubernetes so their cloud service is an obvious choice for deploying Kubernetes as well as many other services.
 
 Before we can do anything with GCloud, I recommend you setup the GCloud SDK. Which is why I wrote this post:
 
-#### 1. Login or Create a Google Account on [cloud.google.com](https://cloud.google.com)
-> Yes, you can use your gmail account
+## Login to [cloud.google.com](https://cloud.google.com)
+If you have a `gmail` account, you do not need to sign up, just login with that gmail account.
 
 
-#### 2. Download GCloud SDK Package [Here](https://cloud.google.com/sdk/docs/downloads-versioned-archives#installation_instructions)
+## Download Google Cloud CLI Package (`gcloud`)
+Regardless of the system you're own, you'll need to download the Google Cloud CLI. You can follow the official insructions from google [here](https://cloud.google.com/sdk/docs/downloads-versioned-archives#installation_instructions).
+
 Find your system version and download the best suited option. Most modern operating systems are 64-bit so download the correct 64 bit version of the gcloud SDK for your system. 
 
+For my computers, I downloaded:
+- On my Apple Silicon MacBook Pro: `google-cloud-cli-417.0.1-darwin-arm.tar.gz`
+- On my Apple Intel MacBook Pro: `google-cloud-cli-417.0.1-darwin-x86_64.tar.gz`
+- On my 64-bit Windows 10: `google-cloud-cli-417.0.1-windows-x86_64.zip` (I do _not_ recommended downloading it with Python bundled. Download python from python.org instead.)
 
-#### 3. Move GCloud SDK and Unpack
+The version numbers you download here will likely be different then mine -- which is fine. We will be updating the Google Cloud CLI in a few steps anyway.
 
-##### __macOS / Linux__
-Open up Terminal
-```
+
+### macOS/Linux CLI Installation
+macOS and Linux users have a few more steps to run to install the `Google Cloud CLI`. It's possible that homebrew has a solution to install `gcloud` but I'm going to install directly from the source.
+
+
+__Open up `Terminal` or Command Line__
+```bash
 cd ~/Downloads
-mv google-cloud-sdk-290.0.0-darwin-x86_64.tar.gz ~/
+mv google-cloud-cli-417.0.1-darwin-arm.tar.gz ~/
 cd ~/
 ```
-Replace `google-cloud-sdk-290.0.0-darwin-x86_64.tar.gz` with the version you downloaded
+Replace `google-cloud-cli-417.0.1-darwin-arm.tar.gz` with the version you downloaded
 
-Unpacking the `tar` file:
+__Unpack the `tar` file__
+```bash
+tar xopf google-cloud-cli-417.0.1-darwin-arm.tar.gz
+rm google-cloud-cli-417.0.1-darwin-arm.tar.gz
 ```
-tar xopf google-cloud-sdk-290.0.0-darwin-x86_64.tar.gz
-rm google-cloud-sdk-290.0.0-darwin-x86_64.tar.gz
-```
-Install `gcloud` on your `PATH`
-```
+
+__Install `gcloud` on your `PATH`__
+```bash
 cd google-cloud-sdk
 ./install.sh
 ```
+
 You should see:
 ```
 Modify profile to update your $PATH and enable shell command 
@@ -50,6 +60,7 @@ completion?
 
 Do you want to continue (Y/n)? 
 ```
+
 Type `Y` and hit `return` to continue. You definitely want this since it makes running glcoud as easy as typing `gcloud` anywhere in terminal. Now you should see:
 ```
 The Google Cloud SDK installer will now prompt you to update an rc 
@@ -61,24 +72,26 @@ Enter a path to an rc file to update, or leave blank to use
 Hit `return` to accept the default (this is what I recommend).
 
 
-##### __Windows__
-Open up Powershell
-```
-cd ~/Downloads
-mv google-cloud-sdk-290.0.0-windows-x86_64.zip ~/
-cd ~/
+### Windows Installation
+
+Open up PowerShell's command line.
+
+```powershell
+cd ~\Downloads
+mv google-cloud-cli-417.0.1-windows-x86_64.zip ~\
+cd ~\
 ```
 
 Then you can use `Expand-Archive` to unpack the download. This might take a while.
-```
-Expand-Archive google-cloud-sdk-290.0.0-windows-x86_64.zip .
+```powershell
+Expand-Archive google-cloud-cli-417.0.1-windows-x86_64.zip .
 ```
 Once done, remove the archive:
-```
-rm google-cloud-sdk-290.0.0-windows-x86_64.zip
+```powershell
+rm google-cloud-cli-417.0.1-windows-x86_64.zip
 ```
 Now:
-```
+```powershell
 cd google-cloud-sdk
 .\install.bat
 ```
@@ -107,23 +120,30 @@ Please enter 'y' or 'n':
 Type `y` and hit `Enter` to continue. You definitely want this since it makes running glcoud as easy as typing `gcloud` anywhere in powershell.
 
 
-#### 4. Update glcoud
-Open a new terminal / powershell window:
+## Update `glcoud`
+On your command line (`Terminal` or `PowerShell`), you should be able to run `gcloud` now:
+
+```bash
+gcloud --version
+```
+
+Let's update `cloud`:
 ```
 gcloud components update
 ```
-> Windows users: you might have to right click on Powershell and `Run as Administrator` to use this command
+_Windows users_ you might have to right click on Powershell and `Run as Administrator` to use this command for the first time.
 
-#### 5. Login on the Command Line
+## Login to Google Cloud for gcloud
+
+The following command will open a web browser and have you login to Google and accept that `Google Cloud SDK wants to access your Google Account`.
 
 ```
 gcloud auth login
 ```
-This will open a web browser and have you login to Google and accept that `Google Cloud SDK wants to access your Google Account`.
 
-#### 6. Create your first Google Cloud Project
 
-Assuming you have a new account:
+## Create your first Google Cloud Project
+If you have never opend Google Cloud before, you will need to create a new project. Here's how you can do that:
 
 1. Go to [cloud.google.com](https://cloud.google.com).
 
@@ -131,7 +151,7 @@ Assuming you have a new account:
 
 3. Click `NEW PROJECT`
 
-4. Add a `Project Name` - You can always add new projects. I'll be using `CFE Project`. Take note of the `Project ID`. Mine was auto generated as `cfe-project-2`. You'll use the `project-id` for your local gcloud setup.
+4. Add a __Project Name__ - You can always add new projects. I'll be using `Serverless CFE`. Take note of the __Project ID__ (`project-id`), mine was auto generated as `serverless-cfe`. You'll use the `project-id` for your local gcloud setup.
 
 5. (Optional) Select an `Organization` if you have one on your account.
 
@@ -140,9 +160,9 @@ Assuming you have a new account:
 7. Open `terminal` / `powershell` and:
 
 ```
-gcloud config set project cfe-project-2
+gcloud config set project serverless-cfe
 ```
-Replace `cfe-project-2` with your `project-id` from step 4.
+Replace `serverless-cfe` with your `project-id` from step 4.
 
-#### 7. All Setup Up!
+## All Setup Up!
 Now your local system should be able to use the enabled services you have in Google Cloud. You'll have to use the Google Cloud [console](https://console.cloud.google.com] from time to time to ensure services can/are running.
