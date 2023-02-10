@@ -165,4 +165,4 @@ gcloud config set project serverless-cfe
 Replace `serverless-cfe` with your `project-id` from step 4.
 
 ## All Setup Up!
-Now your local system should be able to use the enabled services you have in Google Cloud. You'll have to use the Google Cloud [console](https://console.cloud.google.com] from time to time to ensure services can/are running.
+Now your local system should be able to use the enabled services you have in Google Cloud. You'll have to use the Google Cloud [console](https://console.cloud.google.com])from time to time to ensure services can/are running.
