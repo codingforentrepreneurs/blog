@@ -289,7 +289,7 @@ DEBUG = config("DEBUG_PROJECT", cast=bool, default=False)
 
 With this in mind, we'll agument `python-decouple`'s `RepositoryEmpty` to support a string value of a `.env` file as that will be the payload from Google Cloud Secrets Manager. 
 
-Here's our final `src/env.py` file that integrates `python-decouple` with Google Cloud Secrets Manager ()`google-cloud-secret-manager`):
+Here's our final `src/env.py` file that integrates `python-decouple` with Google Cloud Secrets Manager (`google-cloud-secret-manager`):
 
 
 In `src/env.py`
