@@ -24,24 +24,30 @@ As always, it's recommended you use a virtual environment for your Python projec
 
 ```
 path/to/project/
-        .env
-        .git/
-        .gitignore
-        Dockerfile
-        project.code-workspace
-        src/
-            __init__.py
-            env.py
-            main.py
-            requirements.txt
+    .env
+    .git/
+    .gitignore
+    Dockerfile
+    project.code-workspace
+    src/
+        __init__.py
+        env.py
+        main.py
+        requirements.txt
+    venv/
 ```
 
 With this project structure, our `BASE_DIR` variable will eventually map to `path/to/project` which will done by using `pathlib` within our Python module.
 
-Now, install `python-decouple`:
+Add `python-decouple to `requirements.txt`
 
 ```bash
 echo \"python-decouple\" >> src/requirements.txt
+```
+
+Install the requirements:
+
+```bash
 python -m pip install -r src/requirements.txt
 ```
 
@@ -195,12 +201,18 @@ Now, let's use pure python to access our Google Cloud Secret. First, let's insta
 - `google-auth`[view on pypi](https://pypi.org/project/google-auth/)
 - `google-cloud-secret-manager` [view on pypi](https://pypi.org/project/google-cloud-secret-manager/)
 
-To install, update `requirements.txt` and run `python -m pip install` with:
+
+Update `src/requirements.txt`:
 
 ```bash
-echo \"google-auth\" >> requirements.txt
-echo \"google-cloud-secret-manage\" >> requirements.txt
-python -m pip install -r requirements.txt
+echo \"google-auth\" >> src/requirements.txt
+echo \"google-cloud-secret-manage\" >> src/requirements.txt
+```
+
+Install the requirements:
+
+```bash
+python -m pip install -r src/requirements.txt
 ```
 
 Now we can jump into the Python shell
@@ -295,10 +307,6 @@ from decouple import Config, RepositoryEmpty, RepositoryEnv
 import google.auth
 # import google-cloud-secret-manager
 from google.cloud import secretmanager
-
-
-
-from decouple import Config, RepositoryEnv 
 
 # maps to "path/to/project"
 BASE_DIR = pathlib.Path(__file__).parent.parent 
