@@ -39,7 +39,7 @@ path/to/project/
 
 With this project structure, our `BASE_DIR` variable will eventually map to `path/to/project` which will done by using `pathlib` within our Python module.
 
-Add `python-decouple to `requirements.txt`
+Add `python-decouple` to `requirements.txt`
 
 ```bash
 echo \"python-decouple\" >> src/requirements.txt
