@@ -440,8 +440,6 @@ Next create the following workflow:
 ---
 name: Update Google Cloud Secrets Manager
 on:
-  push:
-    branches: [main]
   workflow_dispatch:
 
 jobs:
