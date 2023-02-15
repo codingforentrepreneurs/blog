@@ -1,5 +1,5 @@
 ---
-title: Using Google Secrets Manager in Python Projects with Django, FastAPI, Python Decouple and GitHub Actions
+title: Using Google Secrets Manager with Python Decouple and GitHub Actions
 slug: google-secrets-python-decouple-github-actions
 
 publish_timestamp: Feb. 15, 2023
