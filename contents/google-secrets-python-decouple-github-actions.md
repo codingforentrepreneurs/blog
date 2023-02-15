@@ -342,7 +342,6 @@ def get_google_secret_payload(gcloud_secret_name = "my_secret_file"):
         gcloud_secret_name_path = f"projects/{project_id}/secrets/{secret_label}/versions/latest"
         # this should print the contents of your secret
         payload = client.access_secret_version(name=gcloud_secret_name_path).payload.data.decode("UTF-8")
-        payload = client.access_secret_version(name=name).payload.data.decode("UTF-8")
         return payload
     return None
 
