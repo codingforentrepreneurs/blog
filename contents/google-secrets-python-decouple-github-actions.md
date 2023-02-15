@@ -206,7 +206,7 @@ Update `src/requirements.txt`:
 
 ```bash
 echo \"google-auth\" >> src/requirements.txt
-echo \"google-cloud-secret-manage\" >> src/requirements.txt
+echo \"google-cloud-secret-manager\" >> src/requirements.txt
 ```
 
 Install the requirements:
