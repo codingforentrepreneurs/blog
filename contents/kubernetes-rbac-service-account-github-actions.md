@@ -314,4 +314,81 @@ If you see a bunch of empty values, you may have missed a step or two. Go back a
 
 ## Github Action Workflow
 
-Coming soon.
+
+For GitHub Actions, we need the following:
+
+- A Github Repo
+- The Service Account config file as a Github Secret
+- A Github Actions Workflow file
+
+I'll assume you have a GitHub repo already created. If not, create one now.
+
+
+### Github Secrets
+
+We are copy the contents of our `kubeconfig-sa.yaml` file as a Github Secret. You could break this file apart and store the individual values as secrets, but I find it easier to just copy the entire file as a secret. If you ever need to replace this service account config, you could just replace the entire file as needed.
+
+```
+cat kubeconfig-sa.yaml | pbcopy
+```
+Then, in your Github repo, go to `Settings > Secrets > New Repository Secret` and paste the contents of the `kubeconfig-sa.yaml` file as the value for the secret. I named mine `KUBECONFIG_SA`.
+
+### Create the Github Actions Workflow
+
+Now that we have our Github Secret created, let's implement our Github Actions Workflow as a simple verify workflow.
+
+First, create the `.github/workflows` directory:
+
+```bash
+cd path/to/your/local/repo
+mkdir -p .github/workflows
+```
+
+In `path/to/your/local/repo/.github/workflows/verify-kubectl-sa.yaml`:
+
+```yaml
+name: Verify Kubectl Service Account
+on: 
+  workflow_dispatch:
+
+jobs:
+  verify_service_account:
+    name: Verify K8s Service Account
+    runs-on: ubuntu-latest
+    steps:
+      - uses: azure/setup-kubectl@v3
+      - name: Create/Verify `.kube` directory
+        run: mkdir -p ~/.kube/
+      - name: Create kubectl config
+        run: |
+          cat << EOF >> ~/.kube/kubeconfig.yaml
+          ${{ secrets.KUBECONFIG_SA }}
+          EOF
+      - name: Echo pods
+        run: |
+          KUBECONFIG=~/.kube/kubeconfig.yaml kubectl get pods
+      - name: Echo deployments
+        run: |
+          KUBECONFIG=~/.kube/kubeconfig.yaml kubectl get deployments
+```
+This workflow is straightforward:
+
+1. We use `uses: azure/setup-kubectl@v3` to ensure `kubectl` is available on this workflow. This is an official Github Action created by Microsoft Azure 
+2. We create a kubectl config file via the stored secrets file. For security, GitHub actions secrets are hidden from output even if you run `echo ${{ secrets.KUBECONFIG_SA }}` on a step.
+3. We use our newly created kubectl config file to verify access to read `pods` and `deployments`. This verification is merely ensuring our RBAC is working correctly for this Service account. Add other commands as needed to further verify access.
+
+### Run Workflow on Github
+
+Before we can run the workflow, let's push it to GitHub:
+```bash
+cd path/to/your/local/repo
+git add .github/workflows/verify-kubectl-sa.yaml
+git commit -m "Created K8S SA Verification Workflow"
+git push origin main
+```
+
+Since we declared `workflow_dispatch` as the trigger, we can run the workflow manually by going to `Actions > Verify Kubectl Service Account > Run workflow`:
+
+How did it go? Did you have errors? 
+
+Now you are ready to start adding manifests into this GitHub repo and have them automatically deployed to your Kubernetes cluster.
