@@ -130,16 +130,16 @@ metadata:
 rules:
 - apiGroups: [""]
   resources: 
-    - pods"
+    - pods
     - pods/log
     - services
-    - deployments
     - secrets
     - configmaps
     - persistentvolumeclaims
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 - apiGroups: ["apps"]
   resources: 
+    - deployments
     - statefulsets
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 ```
