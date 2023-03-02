@@ -153,7 +153,6 @@ We now have the foundation to bind this role to our service account. We just nee
 
 - Service account's name and namespace (this can be different than the role/rolebinding's namespace)
 - Role name and namespace (this must be the same as the RoleBinding's namespace) 
-- 
 
 In, `role-binding.yaml`, add the following:
 
@@ -313,7 +312,6 @@ users:
 If you see a bunch of empty values, you may have missed a step or two. Go back and verify the values are correct. At this point, you have a `KUBECONFIG` file that you could test locally with `kubectl` or use in a Github Action. We'll use a Github Action since we already tested using the `--as` flag.
 
 ## Github Action Workflow
-
 
 For GitHub Actions, we need the following:
 
