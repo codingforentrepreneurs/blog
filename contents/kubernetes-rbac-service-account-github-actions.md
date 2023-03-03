@@ -240,8 +240,8 @@ export SERVICE_ACCOUNT="github-actions-sa"
 export SERVICE_ACCOUNT_NAMESPACE="apps"
 export SERVICE_ACCOUNT_SECRET_NAME=$(kubectl get serviceaccounts $SERVICE_ACCOUNT -n $SERVICE_ACCOUNT_NAMESPACE -o jsonpath="{.secrets[0].name}")
 
-export SERVICE_ACCOUNT_SECRET_CERT=$(kubectl get secret $SERVICE_ACCOUNT_SECRET_NAME -o jsonpath="{.data['ca\.crt']}")
-export SERVICE_ACCOUNT_SECRET_TOKEN=$(kubectl get secret $SERVICE_ACCOUNT_SECRET_NAME -o jsonpath="{.data.token}" | base64 -d)
+export SERVICE_ACCOUNT_SECRET_CERT=$(kubectl get secret $SERVICE_ACCOUNT_SECRET_NAME -n $SERVICE_ACCOUNT_NAMESPACE -o jsonpath="{.data['ca\.crt']}")
+export SERVICE_ACCOUNT_SECRET_TOKEN=$(kubectl get secret $SERVICE_ACCOUNT_SECRET_NAME -n $SERVICE_ACCOUNT_NAMESPACE -o jsonpath="{.data.token}" | base64 -d)
 ```
 
 Now the Kubernetes cluster details:
@@ -266,6 +266,7 @@ clusters:
 contexts:
 - context:
     cluster: $CLUSTER_NAME
+    namespace: $SERVICE_ACCOUNT_NAMESPACE
     user: $SERVICE_ACCOUNT
   name: $CLUSTER_NAME-ctx
 current-context: $CLUSTER_NAME-ctx
@@ -406,3 +407,84 @@ Since we declared `workflow_dispatch` as the trigger, we can run the workflow ma
 How did it go? Did you have errors? 
 
 Now you are ready to start adding manifests into this GitHub repo and have them automatically deployed to your Kubernetes cluster.
+
+
+## Bonus: Kubeconfig for Service Account with Pure Python
+
+Create a python module called `sa_config.py` with the contents:
+
+```python
+import subprocess
+
+
+def run_command(command):
+    try:
+        output = subprocess.check_output(command, shell=True, text=True, stderr=subprocess.PIPE)
+        return output.strip()
+    except subprocess.CalledProcessError as e:
+        error_message = f'Error running command: {e.cmd}\n{e.stderr}'
+        raise subprocess.CalledProcessError(e.returncode, e.cmd, error_message)
+
+
+def generate_kubeconfig(service_account: str, namespace: str):
+    # Get the service account secret name
+    command = f'kubectl get serviceaccounts {service_account} -n {namespace} -o jsonpath="{{.secrets[0].name}}"'
+    secret_name = run_command(command)
+
+    # Get the service account secret certificate
+    command = f'kubectl get secret {secret_name}  -n {namespace}  -o jsonpath="{{.data[\'ca\.crt\']}}"'
+    service_account_secret_cert = run_command(command)
+
+    # Get the service account secret token
+    command = f'kubectl get secret {secret_name}  -n {namespace}  -o jsonpath="{{.data.token}}" | base64 -d'
+    service_account_secret_token = run_command(command)
+
+    # Get the cluster URL
+    command = 'kubectl config view --minify -o \'jsonpath={.clusters[0].cluster.server}\''
+    cluster_url = run_command(command)
+
+    # Get the cluster name
+    command = 'kubectl config view --minify -o \'jsonpath={.clusters[0].name}\''
+    cluster_name = run_command(command)
+
+    # Write the kubeconfig file
+    with open('kubeconfig-sa.yaml', 'w') as f:
+        f.write(f'''apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: {service_account_secret_cert}
+    server: {cluster_url}
+  name: {cluster_name}
+contexts:
+- context:
+    cluster: {cluster_name}
+    namespace: {namespace}
+    user: {service_account}
+  name: {cluster_name}-ctx
+current-context: {cluster_name}-ctx
+kind: Config
+users:
+- name: {service_account}
+  user:
+    token: {service_account_secret_token}
+''')
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) != 3:
+        print(f'Usage: {sys.argv[0]} <service-account> <namespace>')
+        sys.exit(1)
+
+    service_account = sys.argv[1]
+    namespace = sys.argv[2]
+
+    generate_kubeconfig(service_account, namespace)
+```
+
+Usage:
+
+```bash
+python3 sa_config.py github-actions-sa apps
+```
+
+We could absolutely imporve this Python module but it does simplify a lot of the process we did in this post.
