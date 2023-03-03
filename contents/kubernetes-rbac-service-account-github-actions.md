@@ -128,20 +128,36 @@ metadata:
   name: github-actions-role
   namespace: apps
 rules:
-- apiGroups: [""]
-  resources: 
-    - pods
-    - pods/log
-    - services
-    - secrets
-    - configmaps
-    - persistentvolumeclaims
-  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
-- apiGroups: ["apps"]
-  resources: 
-    - deployments
-    - statefulsets
-  verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+  - apiGroups: [""]
+    resources:
+      - configmaps
+      - persistentvolumeclaims
+      - pods
+      - pods/exec
+      - pods/log
+      - pods/portforward
+      - secrets
+      - services
+    verbs:
+      - get
+      - watch
+      - list
+      - update
+      - create
+      - patch
+      - delete
+  - apiGroups: ["apps"]
+    resources:
+      - deployments
+      - statefulsets
+    verbs:
+      - get
+      - list
+      - watch
+      - update
+      - create
+      - patch
+      - delete
 ```
 
 For the `statefulsets` resource, we can drop the `/v1` from the apiVersion to account for future apiVersion changes (e.g `apps/v2` if the ever come to be).
