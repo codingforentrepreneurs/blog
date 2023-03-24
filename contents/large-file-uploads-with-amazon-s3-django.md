@@ -68,15 +68,15 @@ This section is similar to the [Setting up S3 S3 Static & Media Files for Django
 
 1. Login to [console.aws.amazon.com](http://console.aws.amazon.com) (create user account if needed.)
 
-2. Navigate to **Services > IAM > Policies **.
+2. Navigate to **Services > IAM > Policies**.
 
 3. Click **Create policy**
 
-4. Select **Create your own poicy**
+4. Select **Create your own policy**
 
 5. Use the following settings:
 
-    - **Policy Name **: 
+    - **Policy Name**: 
     ```
     cfe-awesome-bucket-s3-policy
     ```
@@ -85,7 +85,7 @@ This section is similar to the [Setting up S3 S3 Static & Media Files for Django
     ```
     My policy for the cfe-awesome-bucket I created in step 2.
     ```
-    - ** Policy Document** :
+    - **Policy Document** :
 
         - **Format**:
         Replace `<your-new-bucket>` with your S3 bucket name from above.
@@ -164,7 +164,7 @@ This section is similar to the [Setting up S3 S3 Static & Media Files for Django
 
 1. Login to [console.aws.amazon.com](http://console.aws.amazon.com) (create user account if needed.)
 
-2. Navigate to **Services > IAM > Groups **.
+2. Navigate to **Services > IAM > Groups**.
 
 3. Click **Create new group**
 
@@ -179,7 +179,7 @@ This section is similar to the [Setting up S3 S3 Static & Media Files for Django
 
 1. Login to [console.aws.amazon.com](http://console.aws.amazon.com) (create user account if needed.)
 
-2. Navigate to **Services > IAM > Users **.
+2. Navigate to **Services > IAM > Users**.
 
 3. Click **Create user**
 
@@ -217,30 +217,20 @@ This section is similar to the [Setting up S3 S3 Static & Media Files for Django
 **Format**:
 ```
 AWS_UPLOAD_BUCKET = <your-upload-bucket-name>
-
 AWS_UPLOAD_USERNAME = <your-new-username>
-
 AWS_UPLOAD_GROUP = <your-group-name>
-
-AWS_UPLOAD_REGION = '<your-aws-region>'
-
+AWS_UPLOAD_REGION = <your-aws-region>
 AWS_UPLOAD_ACCESS_KEY_ID = <your-aws-key-id>
-
 AWS_UPLOAD_SECRET_KEY = <your-aws-secret-key>
 ```
 
 **Example**:
-```
+```python
 AWS_UPLOAD_BUCKET = "cfe-awesome-bucket"
-
 AWS_UPLOAD_USERNAME = "CFE_user_justin"
-
 AWS_UPLOAD_GROUP = "CFE_AwesomeGroup"
-
-AWS_UPLOAD_REGION = 'us-west-2'
-
+AWS_UPLOAD_REGION = "us-west-2"
 AWS_UPLOAD_ACCESS_KEY_ID = "AKIAJQEJZQD6WMEQIK7A"
-
 AWS_UPLOAD_SECRET_KEY = "ntRLzMLxie6YZI2jQ8ouXltZM9vdcAF1IVjD+tK+"
 ```
  
@@ -253,14 +243,14 @@ Assuming your using the [Blank Django Project in this guide](https://www.codingf
 
 **1. AWS-related installs. Not required, but recommended:**
 
-```
-pip install boto boto3 cryptography urllib3 requests
+```bash
+python3 -m pip install boto boto3 cryptography urllib3 requests
 ```
 
-**2. Install [django rest framework](http://www.django-rest-framework.org/):**
+**2. Install [django rest framework](http://www.django-rest-framework.org/) and [python-decouple](https://github.com/HBNetwork/python-decouple):**
 
-```
-pip install djangorestframework
+```bash
+pyhton3 -m pip install djangorestframework python-decouple
 ```
 
 Update settings modules (`local.py`, `base.py`, `production.py`):
@@ -274,7 +264,7 @@ INSTALLED_APPS = [
 
 **3. Create `Files app`:**
 
-```
+```bash
 python manage.py startapp files
 ```
 
@@ -308,23 +298,31 @@ INSTALLED_APPS = [
 ]
 ```
 
-**6. Create `config_aws.py` from AWS Setup Above (setup 3):**
+**6. Add AWS values to `.env`:
+```bash
+AWS_UPLOAD_BUCKET="cfe-awesome-bucket"
+AWS_UPLOAD_USERNAME="CFE_user_justin"
+AWS_UPLOAD_GROUP="CFE_AwesomeGroup"
+AWS_UPLOAD_REGION="us-west-2"
+AWS_UPLOAD_ACCESS_KEY_ID="AKIAJQEJZQD6WMEQIK7A"
+AWS_UPLOAD_SECRET_KEY="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"
+```
+**7. Create `config_aws.py` from AWS Setup Above (setup 3):**
+
+Using [python-decouple](https://github.com/HBNetwork/python-decouple) to load in the files from `.env` with:
 
 ```python
-AWS_UPLOAD_BUCKET = "cfe-awesome-bucket"
+from decouple import config
 
-AWS_UPLOAD_USERNAME = "CFE_user_justin"
-
-AWS_UPLOAD_GROUP = "CFE_AwesomeGroup"
-
-AWS_UPLOAD_REGION = 'us-west-2'
-
-AWS_UPLOAD_ACCESS_KEY_ID = "AKIAJQEJZQD6WMEQIK7A"
-
-AWS_UPLOAD_SECRET_KEY = "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"
+AWS_UPLOAD_BUCKET = config("AWS_UPLOAD_BUCKET", default=None)
+AWS_UPLOAD_USERNAME = config("AWS_UPLOAD_USERNAME", default=None)
+AWS_UPLOAD_GROUP = config("AWS_UPLOAD_GROUP", default=None)
+AWS_UPLOAD_REGION = config("AWS_UPLOAD_REGION", default=None)
+AWS_UPLOAD_ACCESS_KEY_ID = config("AWS_UPLOAD_ACCESS_KEY_ID", default=None)
+AWS_UPLOAD_SECRET_KEY = config("AWS_UPLOAD_SECRET_KEY", default=None)
 ```
 
-**7. Create a Policy view and update `files/views.py`:**
+**8. Create a Policy view and update `files/views.py`:**
 
 ```python
 import base64
@@ -447,7 +445,7 @@ class FilePolicyAPI(APIView):
 
 
 
-**8. Update `urls.py`:**
+**9. Update `urls.py`:**
 
 ```python
 from django.views.generic.base import TemplateView
@@ -461,7 +459,7 @@ urlpatterns = [
 ```
 
 
-**9. Create `templates/base.html`:**
+**10. Create `templates/base.html`:**
 
 ```html
 <!DOCTYPE html>
@@ -482,7 +480,7 @@ urlpatterns = [
 ```
 
 
-**10. Create upload template `templates/upload.html` with the contents:**
+**11. Create upload template `templates/upload.html` with the contents:**
 
 ```html
 {% extends "base.html" %}
@@ -500,13 +498,13 @@ urlpatterns = [
 {% endblock content %}
 ```
 
-** 11. Ensure Django has static files setup like we do [in this guide](https://www.codingforentrepreneurs.com/blog/s3-static-media-files-for-django/) or any other static file setup you choose. **
+**12. Ensure Django has static files setup like we do [in this guide](https://www.codingforentrepreneurs.com/blog/s3-static-media-files-for-django/) or any other static file setup you choose.**
 
 
 ## jQuery Configuration
 Below is the jQuery code we're going to use.
 
-```
+```html
 <script>
 $(document).ready(function(){
 
@@ -705,7 +703,7 @@ function uploadFile(fileItem){
 ## Django File Upload Complete API Endpoint
 
 1. Update `files/views.py`
-```
+```python
 class FileUploadCompleteHandler(APIView):
     permission_classes = [permissions.IsAuthenticated]
     authentication_classes = [authentication.SessionAuthentication]
@@ -738,7 +736,7 @@ urlpatterns = [
 ]
 ```
 3. Update jquery:
-```
+```javascript
 xhr.upload.addEventListener("load", function(event){
                 console.log("Complete")
                 // handle FileItem Upload being complete.
@@ -748,5 +746,4 @@ xhr.upload.addEventListener("load", function(event){
 ```
 
 
-### Watch
-<iframe width="560" height="315" src="https://www.youtube.com/embed/CbB7UoPyErY" frameborder="0" allowfullscreen></iframe>
+### Watch a how-to guide on [youtube](https://www.youtube.com/watch?v=CbB7UoPyErY)
