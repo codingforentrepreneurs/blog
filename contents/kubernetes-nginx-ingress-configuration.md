@@ -2,7 +2,7 @@
 title: Configure Kubernetes for NGINX with ingress-nginx
 slug: kubernetes-nginx-ingress-configuration
 
-publish_timestamp: May 15, 2023
+publish_timestamp: May 16, 2023
 url: https://www.codingforentrepreneurs.com/blog/kubernetes-nginx-ingress-configuration/
 
 ---
